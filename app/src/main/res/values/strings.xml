@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AppAnimalDonate</string>
+    <string name="semgps">Desculpe sem GPS disponível!</string>
+</resources>
