@@ -1,4 +1,4 @@
-package br.usjt.appanimaldonate;
+package br.usjt.appanimaldonate.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -7,7 +7,11 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+
+import br.usjt.appanimaldonate.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,21 +19,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ConstraintLayout constraintLayout = findViewById(R.id.layout);
-        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2000);
-        animationDrawable.setExitFadeDuration(4000);
-        animationDrawable.start();
-
-        Log.d("CICLO_DE_VIDA","MainActivity --> onCreate");
     }
 
-    public void novoCadastro(View view){
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-        Intent intent = new Intent(this, CadastroUsuarioActivity.class);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.cadastro:
+                Intent intent = new Intent(this, CadastroUsuarioActivity.class);
+                startActivity(intent);
+                return (true);
+            case R.id.sair:
+                finish();
+                return (true);
+        }
+        return (super.onOptionsItemSelected(item));
 
-        startActivity(intent);
+
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -60,5 +75,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy(){
         super.onDestroy();
         Log.d("CICLO_DE_VIDA","MainActivity --> onDestroy");
+    }*/
     }
 }

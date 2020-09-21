@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">AppAnimalDonate</string>
     <string name="semgps">Desculpe sem GPS disponível!</string>
+    <string name="news">configuração</string>
+    <string name="perfil">Perfil</string>
+    <string name="meusAnuncios">Meus Anúncios</string>
+    <string name="novoAnuncio">Novo Anúncio</string>
+    <string name="adotar">Adotar</string>
+    <string name="cadastro">Cadastro do Usuário</string>
+    <string name="sair">Sair</string>
 </resources>

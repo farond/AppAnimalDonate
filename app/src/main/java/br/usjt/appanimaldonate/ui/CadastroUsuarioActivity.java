@@ -1,8 +1,11 @@
-package br.usjt.appanimaldonate;
+package br.usjt.appanimaldonate.ui;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.content.Context;
@@ -14,8 +17,15 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.orhanobut.hawk.Hawk;
+
+import br.usjt.appanimaldonate.R;
+import br.usjt.appanimaldonate.model.Usuario;
+import br.usjt.appanimaldonate.model.UsuarioViewModel;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
@@ -26,19 +36,42 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     private double latitudeAtual;
     private double longitudeAtual;
 
+    private UsuarioViewModel usuarioViewModel;
+    private EditText editTextNome;
+    private EditText editTextCPF;
+    private EditText editTextEmail;
+    private EditText editTextSenha;
+    private EditText editTextDataNascimento;
+    private Usuario usuarioCorrente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
 
-        Log.d("CICLO_DE_VIDA", "SegundaActivity --> onCreate");
+        Hawk.init(this).build();
 
-        /*Intent intent = getIntent();
-        String nome = intent.getStringExtra("NOMEUSUARIO");
-        String cpf = intent.getStringExtra("CPFUSUARIO");
-        String email = intent.getStringExtra("EMAILUSUARIO");
-        TextView textViewNome = (TextView)findViewById(R.id.cadastroUsuarioTelaTextView);
-        textViewNome.setText("Olá "+nome+ " seu CPF é: "+cpf +" e seu email é "+email);*/
+        usuarioCorrente = new Usuario();
+
+        editTextNome = (EditText)findViewById(R.id.nomeEditText);
+        editTextCPF = (EditText)findViewById(R.id.cpfEditText);
+        editTextCPF.addTextChangedListener(Mask.insert(Mask.CPF_MASK, editTextCPF));
+        editTextEmail = (EditText)findViewById(R.id.emailEditText);
+        editTextSenha = (EditText)findViewById(R.id.senhaEditText);
+        editTextDataNascimento = (EditText)findViewById(R.id.dataNascimentoEditText);
+        editTextDataNascimento.addTextChangedListener(Mask.insert(Mask.DATANASC_MASK, editTextDataNascimento));
+
+        Log.d("CICLO_DE_VIDA", "SegundaActivity --> onCreate");
+        usuarioViewModel = new ViewModelProvider(this).get(UsuarioViewModel.class);
+
+
+        usuarioViewModel.getUsuario().observe(this, new Observer<Usuario>() {
+            @Override
+            public void onChanged(@Nullable final Usuario usuario) {
+                updateView(usuario);
+            }
+        });
+
 
         locationManager = (LocationManager)
                 getSystemService(Context.LOCATION_SERVICE);
@@ -66,12 +99,29 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             }
 
         };
-
-        locationTextView = findViewById(R.id.locationTextView);
-
+        //locationTextView = findViewById(R.id.locationTextView);
     }
 
-    public void voltar(View view) {
+    private void updateView(Usuario usuario){
+        if(usuario != null && usuario.getId() > 0){
+            usuarioCorrente = usuario;
+            editTextNome.setText(usuario.getNome());
+            editTextCPF.setText(usuario.getCpf());
+            editTextEmail.setText(usuario.getEmail());
+            editTextSenha.setText(usuario.getSenha());
+            editTextDataNascimento.setText(usuario.getDataNascimento());
+        }
+    }
+
+    public void cadastrar(View view){
+        usuarioCorrente.setNome(editTextNome.getText().toString());
+        usuarioCorrente.setCpf(editTextCPF.getText().toString());
+        usuarioCorrente.setEmail(editTextEmail.getText().toString());
+        usuarioCorrente.setSenha(editTextSenha.getText().toString());
+        usuarioCorrente.setDataNascimento(editTextDataNascimento.getText().toString());
+        usuarioViewModel.insert(usuarioCorrente);
+        Hawk.put("tem_cadastro",true);
+        Toast.makeText(this,"Usuário salvo com sucesso!",Toast.LENGTH_SHORT).show();
         finish();
     }
 
