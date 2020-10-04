@@ -23,6 +23,7 @@ import br.usjt.appanimaldonate.model.UsuarioViewModel;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     private EditText editTextUsuario;
     private EditText editTextSenha;
     private Button buttonLogin;
