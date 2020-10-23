@@ -44,7 +44,7 @@ public class NovoAnuncioFragment extends Fragment {
     private Animal novoAnuncioCorrente;
     private Button buttonSalvarAnuncio;
     private AnimalViewModel animalViewModel;
-    private Animal animalCorrente;
+//    private Animal animalCorrente;
 
     private String mParam1;
     private Animal animal;
@@ -79,7 +79,6 @@ public class NovoAnuncioFragment extends Fragment {
                     mensagem = "Anuncio criado com sucesso!";
                 }
                 Toast.makeText(getActivity(),mensagem,Toast.LENGTH_SHORT).show();
-
             }
         });
         animalViewModel.getAlteradoSucesso().observe(this, new Observer<Boolean>() {
@@ -91,7 +90,6 @@ public class NovoAnuncioFragment extends Fragment {
                 }
                 limparCampos();
                 Toast.makeText(getActivity(),mensagem,Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -111,6 +109,7 @@ public class NovoAnuncioFragment extends Fragment {
 
         editTextNomeAnimal = getView().findViewById(R.id.nomeAnimalEditText);
         editTextIdadeAnimal = getView().findViewById(R.id.idadeAnimalEditText);
+        editTextInformacaoVacAnimal = getView().findViewById(R.id.informacaoVacAnimalEditText);
         spinnerEspecieAnimal = getView().findViewById(R.id.especieAnimalSpinner);
         spinnerEspecieAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -175,13 +174,13 @@ public class NovoAnuncioFragment extends Fragment {
             editTextNomeAnimal.setText(novoAnuncioCorrente.getNomeAnimal());
             editTextIdadeAnimal.setText(novoAnuncioCorrente.getIdadeAnimal());
             editTextInformacaoVacAnimal.setText(novoAnuncioCorrente.getInformacao());
-            editTextInformacaoVacAnimal.setText(editTextInformacaoVacAnimal.getText().toString());
-            spinnerRacaAnimal.setSelection(((ArrayAdapter)spinnerRacaAnimal.getAdapter()).getPosition(animalCorrente.getRacaAnimal()));
-            spinnerPorteAnimal.setSelection(((ArrayAdapter)spinnerPorteAnimal.getAdapter()).getPosition(animalCorrente.getPorteAnimal()));
-            spinnerEspecieAnimal.setSelection(((ArrayAdapter)spinnerEspecieAnimal.getAdapter()).getPosition(animalCorrente.getEspecieAnimal()));
-            spinnerGeneroAnimal.setSelection(((ArrayAdapter)spinnerGeneroAnimal.getAdapter()).getPosition(animalCorrente.getGeneroAnimal()));
-            switchVacinacaoAnimal.setChecked(animalCorrente.isVacina());
-            switchCastracaoAnimal.setChecked(animalCorrente.isCastrado());
+            spinnerRacaAnimal.setSelection(((ArrayAdapter)spinnerRacaAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getRacaAnimal()));
+            spinnerPorteAnimal.setSelection(((ArrayAdapter)spinnerPorteAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getPorteAnimal()));
+            spinnerEspecieAnimal.setSelection(((ArrayAdapter)spinnerEspecieAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getEspecieAnimal()));
+            spinnerGeneroAnimal.setSelection(((ArrayAdapter)spinnerGeneroAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getGeneroAnimal()));
+//            spinnerRacaAnimal.setSelection(((ArrayAdapter)spinnerRacaAnimal.getAdapter()).getPosition(animalCorrente.getRacaAnimal()));
+            switchVacinacaoAnimal.setChecked(novoAnuncioCorrente.isVacina());
+            switchCastracaoAnimal.setChecked(novoAnuncioCorrente.isCastrado());
         }
 
     }
@@ -191,7 +190,7 @@ public class NovoAnuncioFragment extends Fragment {
         novoAnuncioCorrente.setIdadeAnimal(editTextIdadeAnimal.getText().toString());
         novoAnuncioCorrente.setInformacao(editTextInformacaoVacAnimal.getText().toString());
         novoAnuncioCorrente.setEspecieAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
-        novoAnuncioCorrente.setPorteAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
+        novoAnuncioCorrente.setPorteAnimal(spinnerPorteAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setRacaAnimal(spinnerRacaAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setGeneroAnimal(spinnerGeneroAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setVacina(switchVacinacaoAnimal.isChecked());
