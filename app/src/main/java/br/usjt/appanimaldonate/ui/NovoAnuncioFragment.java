@@ -175,7 +175,7 @@ public class NovoAnuncioFragment extends Fragment {
             editTextNomeAnimal.setText(novoAnuncioCorrente.getNomeAnimal());
             editTextIdadeAnimal.setText(novoAnuncioCorrente.getIdadeAnimal());
             editTextInformacaoVacAnimal.setText(novoAnuncioCorrente.getInformacao());
-            novoAnuncioCorrente.setInformacao(editTextInformacaoVacAnimal.getText().toString());
+            editTextInformacaoVacAnimal.setText(editTextInformacaoVacAnimal.getText().toString());
             spinnerRacaAnimal.setSelection(((ArrayAdapter)spinnerRacaAnimal.getAdapter()).getPosition(animalCorrente.getRacaAnimal()));
             spinnerPorteAnimal.setSelection(((ArrayAdapter)spinnerPorteAnimal.getAdapter()).getPosition(animalCorrente.getPorteAnimal()));
             spinnerEspecieAnimal.setSelection(((ArrayAdapter)spinnerEspecieAnimal.getAdapter()).getPosition(animalCorrente.getEspecieAnimal()));
