@@ -17,6 +17,10 @@ public class Animal implements Serializable {
     @Expose
     private String nomeAnimal;
 
+    @SerializedName("genero")
+    @Expose
+    private String generoAnimal;
+
     @SerializedName("raca")
     @Expose
     private String racaAnimal;
@@ -35,7 +39,7 @@ public class Animal implements Serializable {
 
     @SerializedName("vacina")
     @Expose
-    private Boolean vacina;
+    private boolean vacina;
 
     @SerializedName("informacao")
     @Expose
@@ -43,22 +47,7 @@ public class Animal implements Serializable {
 
     @SerializedName("castrado")
     @Expose
-    private Boolean castrado;
-
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "id='" + id + '\'' +
-                ", nomeAnimal='" + nomeAnimal + '\'' +
-                ", racaAnimal='" + racaAnimal + '\'' +
-                ", especieAnimal='" + especieAnimal + '\'' +
-                ", porteAnimal='" + porteAnimal + '\'' +
-                ", idadeAnimal='" + idadeAnimal + '\'' +
-                ", vacina=" + vacina +
-                ", informacao='" + informacao + '\'' +
-                ", castrado=" + castrado +
-                '}';
-    }
+    private boolean castrado;
 
     public String getId() {
         return id;
@@ -74,6 +63,14 @@ public class Animal implements Serializable {
 
     public void setNomeAnimal(String nomeAnimal) {
         this.nomeAnimal = nomeAnimal;
+    }
+
+    public String getGeneroAnimal() {
+        return generoAnimal;
+    }
+
+    public void setGeneroAnimal(String generoAnimal) {
+        this.generoAnimal = generoAnimal;
     }
 
     public String getRacaAnimal() {
@@ -108,14 +105,6 @@ public class Animal implements Serializable {
         this.idadeAnimal = idadeAnimal;
     }
 
-    public Boolean getVacina() {
-        return vacina;
-    }
-
-    public void setVacina(Boolean vacina) {
-        this.vacina = vacina;
-    }
-
     public String getInformacao() {
         return informacao;
     }
@@ -124,11 +113,29 @@ public class Animal implements Serializable {
         this.informacao = informacao;
     }
 
-    public Boolean getCastrado() {
+    public boolean isCastrado() {
         return castrado;
     }
 
-    public void setCastrado(Boolean castrado) {
+    public void setCastrado(boolean castrado) {
         this.castrado = castrado;
+    }
+
+    public boolean isVacina() {
+        return vacina;
+    }
+
+    public void setVacina(boolean vacina) {
+        this.vacina = vacina;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id='" + id + '\'' +
+                ", nomeAnimal='" + nomeAnimal + '\'' +
+                ", idadeAnimal='" + idadeAnimal + '\'' +
+                ", informacao='" + informacao + '\'' +
+                '}';
     }
 }

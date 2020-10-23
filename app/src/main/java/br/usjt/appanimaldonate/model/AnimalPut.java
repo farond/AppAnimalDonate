@@ -9,6 +9,10 @@ public class AnimalPut {
     @Expose
     private String nomeAnimal;
 
+    @SerializedName("genero")
+    @Expose
+    private String generoAnimal;
+
     @SerializedName("raca")
     @Expose
     private String racaAnimal;
@@ -27,7 +31,7 @@ public class AnimalPut {
 
     @SerializedName("vacina")
     @Expose
-    private Boolean vacina;
+    private boolean vacina;
 
     @SerializedName("informacao")
     @Expose
@@ -35,9 +39,26 @@ public class AnimalPut {
 
     @SerializedName("castrado")
     @Expose
-    private Boolean castrado;
+    private boolean castrado;
 
-    public AnimalPut(String nomeAnimal, String racaAnimal, String porteAnimal, String idadeAnimal, String especieAnimal, String idadeAnimal1, String informacao, Boolean castrado, Boolean vacina) {
+    public AnimalPut(String nomeAnimal,
+                     String generoAnimal,
+                     String racaAnimal,
+                     String especieAnimal,
+                     String porteAnimal,
+                     String idadeAnimal,
+                     String informacao,
+                     boolean vacina,
+                     boolean castrado) {
+        this.nomeAnimal = nomeAnimal;
+        this.generoAnimal = generoAnimal;
+        this.racaAnimal = racaAnimal;
+        this.especieAnimal = especieAnimal;
+        this.porteAnimal = porteAnimal;
+        this.idadeAnimal = idadeAnimal;
+        this.informacao = informacao;
+        this.vacina = vacina;
+        this.castrado = castrado;
     }
 
     public String getNomeAnimal() {
@@ -46,6 +67,14 @@ public class AnimalPut {
 
     public void setNomeAnimal(String nomeAnimal) {
         this.nomeAnimal = nomeAnimal;
+    }
+
+    public String getGeneroAnimal() {
+        return generoAnimal;
+    }
+
+    public void setGeneroAnimal(String generoAnimal) {
+        this.generoAnimal = generoAnimal;
     }
 
     public String getRacaAnimal() {
@@ -80,14 +109,6 @@ public class AnimalPut {
         this.idadeAnimal = idadeAnimal;
     }
 
-    public Boolean getVacina() {
-        return vacina;
-    }
-
-    public void setVacina(Boolean vacina) {
-        this.vacina = vacina;
-    }
-
     public String getInformacao() {
         return informacao;
     }
@@ -96,22 +117,6 @@ public class AnimalPut {
         this.informacao = informacao;
     }
 
-    public Boolean getCastrado() {
-        return castrado;
-    }
 
-    public void setCastrado(Boolean castrado) {
-        this.castrado = castrado;
-    }
 
-    public AnimalPut(String nomeAnimal, String racaAnimal, String especieAnimal, String porteAnimal, String idadeAnimal, Boolean vacina, String informacao, Boolean castrado) {
-        this.nomeAnimal = nomeAnimal;
-        this.racaAnimal = racaAnimal;
-        this.especieAnimal = especieAnimal;
-        this.porteAnimal = porteAnimal;
-        this.idadeAnimal = idadeAnimal;
-        this.vacina = vacina;
-        this.informacao = informacao;
-        this.castrado = castrado;
-    }
 }

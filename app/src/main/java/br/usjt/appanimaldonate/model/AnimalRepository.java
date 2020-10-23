@@ -19,6 +19,7 @@ public class AnimalRepository {
 
     private static final String CONTATOS_SERVICE_BASE_URL = "https://crudcrud.com";
 
+
     private AnimalService animalService;
     private MutableLiveData<List<Animal>> animaisResponseMutableLiveData;
     private MutableLiveData<Boolean> salvoSucessoMutableLiveData;
@@ -33,13 +34,12 @@ public class AnimalRepository {
         interceptor.level(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
-        AnimalService = new retrofit2.Retrofit.Builder()
-                .baseUrl(ANIMAIS_SERVICE_BASE_URL)
+       animalService = new retrofit2.Retrofit.Builder()
+                .baseUrl(CONTATOS_SERVICE_BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(AnimalService.class);
-
     }
 
     public void getAnimais() {
@@ -97,8 +97,16 @@ public class AnimalRepository {
     public void alterarAnimal(Animal animal){
         Log.d("ANIMALKP","na repo");
 
-        AnimalPut animalPut = new AnimalPut(animal.getNomeAnimal(), animal.getRacaAnimal(), animal.getPorteAnimal(), animal.getIdadeAnimal(), animal.getEspecieAnimal(), animal.getIdadeAnimal(),
-        animal.getInformacao(), animal.getCastrado(), animal.getVacina());
+        AnimalPut animalPut = new AnimalPut(
+                animal.getNomeAnimal(),
+                animal.getGeneroAnimal(),
+                animal.getRacaAnimal(),
+                animal.getPorteAnimal(),
+                animal.getIdadeAnimal(),
+                animal.getEspecieAnimal(),
+                animal.getInformacao(),
+                animal.isCastrado(),
+                animal.isVacina());
 
         animalService.alterarAnimal(animal.getId(), animalPut)
                 .enqueue(new Callback<ResponseBody>() {

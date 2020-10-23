@@ -57,7 +57,25 @@
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewGeneroAnimal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:id="@+id/textViewVacinaAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:id="@+id/textViewCastracaoAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:id="@+id/textViewInformacaoAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
