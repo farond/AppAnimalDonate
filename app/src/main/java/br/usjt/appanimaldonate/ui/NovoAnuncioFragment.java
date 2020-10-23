@@ -25,11 +25,7 @@ import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
 import br.usjt.appanimaldonate.model.AnimalViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link NovoAnuncioFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class NovoAnuncioFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
@@ -42,12 +38,13 @@ public class NovoAnuncioFragment extends Fragment {
     private Spinner spinnerPorteAnimal;
     private Spinner spinnerRacaAnimal;
     private Spinner spinnerGeneroAnimal;
-    private Switch switchVacinacaoAnimal;
     private EditText editTextInformacaoVacAnimal;
+    private Switch switchVacinacaoAnimal;
     private Switch switchCastracaoAnimal;
     private Animal novoAnuncioCorrente;
     private Button buttonSalvarAnuncio;
     private AnimalViewModel animalViewModel;
+    private Animal animalCorrente;
 
     private String mParam1;
     private Animal animal;
@@ -71,15 +68,6 @@ public class NovoAnuncioFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             animal = (Animal) getArguments().getSerializable(ARG_PARAM2);
-
-            Spinner spinner = (Spinner) spinnerEspecieAnimal.findViewById(R.id.especieAnimalSpinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
-            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                    R.array.especie_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-            spinner.setAdapter(adapter);
         }
 
         animalViewModel = new ViewModelProvider(this).get(AnimalViewModel.class);
@@ -108,12 +96,6 @@ public class NovoAnuncioFragment extends Fragment {
         });
     }
 
-    private void limparCampos(){
-        editTextNomeAnimal.setText("");
-        editTextIdadeAnimal.setText("");
-        editTextInformacaoVacAnimal.setText("");
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -130,18 +112,58 @@ public class NovoAnuncioFragment extends Fragment {
         editTextNomeAnimal = getView().findViewById(R.id.nomeAnimalEditText);
         editTextIdadeAnimal = getView().findViewById(R.id.idadeAnimalEditText);
         spinnerEspecieAnimal = getView().findViewById(R.id.especieAnimalSpinner);
+        spinnerEspecieAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("ITEMESPECIESELECIONADO", "POSIÇÃO-->"+position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spinnerGeneroAnimal = getView().findViewById(R.id.generoAnimalSpinner);
+        spinnerGeneroAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("ITEMGENEROSELECIONADO", "POSIÇÃO-->"+position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spinnerPorteAnimal = getView().findViewById(R.id.racaAnimalSpinner);
+        spinnerPorteAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("ITEMPORTESELECIONADO", "POSIÇÃO-->"+position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spinnerRacaAnimal = getView().findViewById(R.id.porteAnimalSpinner);
+        spinnerRacaAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("ITEMRACASELECIONADO", "POSIÇÃO-->"+position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         switchCastracaoAnimal = getView().findViewById(R.id.castracaoAnimalSwitch);
         switchVacinacaoAnimal = getView().findViewById(R.id.vacinacaoAnimalSwitch);
         buttonSalvarAnuncio = getView().findViewById(R.id.salvarAnuncioButton);
 
-
         buttonSalvarAnuncio.setOnClickListener(new View.OnClickListener() {
-
-
-
             @Override
             public void onClick(View v) {
                 salvar();
@@ -154,9 +176,12 @@ public class NovoAnuncioFragment extends Fragment {
             editTextIdadeAnimal.setText(novoAnuncioCorrente.getIdadeAnimal());
             editTextInformacaoVacAnimal.setText(novoAnuncioCorrente.getInformacao());
             novoAnuncioCorrente.setInformacao(editTextInformacaoVacAnimal.getText().toString());
-            novoAnuncioCorrente.setEspecieAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
-            novoAnuncioCorrente.setPorteAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
-            novoAnuncioCorrente.setRacaAnimal(spinnerRacaAnimal.getSelectedItem().toString());
+            spinnerRacaAnimal.setSelection(((ArrayAdapter)spinnerRacaAnimal.getAdapter()).getPosition(animalCorrente.getRacaAnimal()));
+            spinnerPorteAnimal.setSelection(((ArrayAdapter)spinnerPorteAnimal.getAdapter()).getPosition(animalCorrente.getPorteAnimal()));
+            spinnerEspecieAnimal.setSelection(((ArrayAdapter)spinnerEspecieAnimal.getAdapter()).getPosition(animalCorrente.getEspecieAnimal()));
+            spinnerGeneroAnimal.setSelection(((ArrayAdapter)spinnerGeneroAnimal.getAdapter()).getPosition(animalCorrente.getGeneroAnimal()));
+            switchVacinacaoAnimal.setChecked(animalCorrente.isVacina());
+            switchCastracaoAnimal.setChecked(animalCorrente.isCastrado());
         }
 
     }
@@ -168,12 +193,25 @@ public class NovoAnuncioFragment extends Fragment {
         novoAnuncioCorrente.setEspecieAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setPorteAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setRacaAnimal(spinnerRacaAnimal.getSelectedItem().toString());
+        novoAnuncioCorrente.setGeneroAnimal(spinnerGeneroAnimal.getSelectedItem().toString());
+        novoAnuncioCorrente.setVacina(switchVacinacaoAnimal.isChecked());
+        novoAnuncioCorrente.setCastrado(switchCastracaoAnimal.isChecked());
         if(animal == null){
             animalViewModel.salvarAnimal(novoAnuncioCorrente);
         }else{
             Log.d("ANIMALKP","alterar");
             animalViewModel.alterarAnimal(novoAnuncioCorrente);
         }
+        limparCampos();
+    }
 
+    private void limparCampos(){
+        editTextNomeAnimal.setText("");
+        editTextIdadeAnimal.setText("");
+        editTextInformacaoVacAnimal.setText("");
+        spinnerPorteAnimal.setSelection(0);
+        spinnerRacaAnimal.setSelection(0);
+        spinnerEspecieAnimal.setSelection(0);
+        spinnerGeneroAnimal.setSelection(0);
     }
 }

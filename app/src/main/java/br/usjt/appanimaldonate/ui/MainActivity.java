@@ -43,27 +43,27 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.novoAnuncio:
                     replaceFragment(R.id.frameLayout,
-                            NovoAnuncioFragment.newInstance("", ""),
+                            NovoAnuncioFragment.newInstance("", null),
                             NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
-                            "home");
+                            "novoAnuncio");
                     break;
                 case R.id.perfil:
                     replaceFragment(R.id.frameLayout,
                             PerfilFragment.newInstance("", ""),
                             PerfilFragment.PERFIL_FRAGMENT_TAG,
-                            "home");
+                            "perfil");
                     break;
                 case R.id.anuncios:
                     replaceFragment(R.id.frameLayout,
                             AnunciosFragment.newInstance("", ""),
                             AnunciosFragment.ANUNCIOS_FRAGMENT_TAG,
-                            "home");
+                            "anuncios");
                     break;
                 case R.id.configuracao:
                     replaceFragment(R.id.frameLayout,
                             ConfiguracaoFragment.newInstance(false, ""),
                             ConfiguracaoFragment.CONFIGURACAO_FRAGMENT_TAG,
-                            "home");
+                            "configuracao");
                     break;
                 default:
                     //nada

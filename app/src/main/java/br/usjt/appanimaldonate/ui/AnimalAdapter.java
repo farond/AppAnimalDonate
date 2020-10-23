@@ -3,10 +3,12 @@ package br.usjt.appanimaldonate.ui;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,14 +35,82 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         Animal animal = results.get(position);
 
         holder.textViewNomeAnimal.setText(animal.getNomeAnimal());
-        holder.textViewEmail.setText(animal.getEmailAnimal());
-        holder.textViewTelefone.setText(animal.getTelefone());
+        holder.textViewEspecieAnimal.setText(animal.getEspecieAnimal());
+        holder.textViewRacaAnimal.setText(animal.getRacaAnimal());
+        holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
+        holder.textViewGeneroAnimal.setText(animal.getGeneroAnimal());
+        holder.textViewIdadeAnimal.setText(animal.getIdadeAnimal());
+        if(animal.isVacina()){
+            holder.textViewVacinaAnimal.setText("Animal Vacinado");
+        }
+        else{
+            holder.textViewVacinaAnimal.setText("Animal não Vacinado");
+        }
+        if(animal.isCastrado()){
+            holder.textViewCastracaoAnimal.setText("Animal Castrado");
+        }
+        else{
+            holder.textViewCastracaoAnimal.setText("Animal não Castrado");
+        }
+
+        holder.textViewInformacaoAnimal.setText(animal.getInformacao());
+
 
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return results.size();
+    }
+
+    public void setResults(List<Animal> results) {
+        this.results = results;
+        notifyDataSetChanged();
+    }
+
+    class AnimalHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+
+        private TextView textViewNomeAnimal;
+        private TextView textViewEspecieAnimal;
+        private TextView textViewRacaAnimal;
+        private TextView textViewPorteAnimal;
+        private TextView textViewIdadeAnimal;
+        private TextView textViewGeneroAnimal;
+        private TextView textViewVacinaAnimal;
+        private TextView textViewCastracaoAnimal;
+        private TextView textViewInformacaoAnimal;
+
+
+        public AnimalHolder(@NonNull View itemView) {
+            super(itemView);
+            textViewNomeAnimal = itemView.findViewById(R.id.textViewNomeAnimal);
+            textViewEspecieAnimal = itemView.findViewById(R.id.textViewEspecieAnimal);
+            textViewRacaAnimal = itemView.findViewById(R.id.textViewRacaAnimal);
+            textViewPorteAnimal = itemView.findViewById(R.id.textViewPorteAnimal);
+            textViewIdadeAnimal = itemView.findViewById(R.id.textViewIdadeAnimal);
+            textViewGeneroAnimal = itemView.findViewById(R.id.textViewGeneroAnimal);
+            textViewVacinaAnimal = itemView.findViewById(R.id.textViewVacinaAnimal);
+            textViewCastracaoAnimal = itemView.findViewById(R.id.textViewCastracaoAnimal);
+            textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoAnimal);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(itemClickListener != null) {
+                itemClickListener.onItemClick(getAdapterPosition(), results.get(getAdapterPosition()));
+            }
+        }
+    }
+    public void setOnItemClickListener(ItemClickListener itemClickListener){
+        this.itemClickListener = itemClickListener;
+    }
+
+    public interface ItemClickListener {
+        void onItemClick(int position, Animal animal);
     }
 }
+
+
