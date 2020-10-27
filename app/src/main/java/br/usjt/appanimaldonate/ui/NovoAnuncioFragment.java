@@ -87,6 +87,7 @@ public class NovoAnuncioFragment extends Fragment {
                 String mensagem = "Alteração de anuncio falhou!";
                 if(sucesso){
                     mensagem = "Anuncio alterado com sucesso!";
+                    updateView(animal);
                 }
                 limparCampos();
                 Toast.makeText(getActivity(),mensagem,Toast.LENGTH_SHORT).show();
@@ -202,6 +203,18 @@ public class NovoAnuncioFragment extends Fragment {
             animalViewModel.alterarAnimal(novoAnuncioCorrente);
         }
         limparCampos();
+    }
+
+    private void updateView(Animal animal) {
+        if(animalViewModel.getAlteradoSucesso().equals(true)){
+            animal.setNomeAnimal(animal.getNomeAnimal());
+            animal.setGeneroAnimal(animal.getGeneroAnimal());
+            animal.setRacaAnimal(animal.getRacaAnimal());
+            animal.setEspecieAnimal(animal.getEspecieAnimal());
+            animal.setPorteAnimal(animal.getPorteAnimal());
+            animal.setIdadeAnimal(animal.getIdadeAnimal());
+            animal.setInformacao(animal.getInformacao());
+        }
     }
 
     private void limparCampos(){
