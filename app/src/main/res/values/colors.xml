@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#ff7e73</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#FFFFFF</color>
 
-    <color name="titulos_formulario">#0000FF</color>
+    <color name="botaoLogin">#FFFFFF</color>
+
+    <color name="colorIcons">#ff7e73</color>
+
+    <color name="loginIconColor">#ffae51</color>
+
+    <color name="titulos_formulario">#ffaca5</color>
     <color name="telaInicial_formulario">#EAEAEF</color>
 
 </resources>

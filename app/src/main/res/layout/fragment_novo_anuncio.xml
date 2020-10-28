@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +12,7 @@
         android:id="@+id/tituloTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Animal"
+        android:text="Cadastro de Anuncio"
         android:textColor="@color/titulos_formulario"
         android:textSize="14pt"
         android:layout_marginTop="50dp"
@@ -105,7 +106,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
-        android:hint="Vacinação?"
+        android:hint="Vacinado?"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -133,7 +134,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
-        android:hint="castração?"
+        android:hint="castrado?"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -149,7 +150,7 @@
         android:layout_marginBottom="10dp"
         android:text="Cadastrar Anuncio"
         android:background="@drawable/round"
-        android:textSize="9pt"
+        android:textSize="8pt"
         android:textColor="#FFFFFF"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

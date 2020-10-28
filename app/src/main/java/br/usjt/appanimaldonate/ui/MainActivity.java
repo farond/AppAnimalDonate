@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
                             NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
                             "novoAnuncio");
                     break;
-                case R.id.perfil:
-                    replaceFragment(R.id.frameLayout,
-                            PerfilFragment.newInstance("", ""),
-                            PerfilFragment.PERFIL_FRAGMENT_TAG,
-                            "perfil");
-                    break;
+//                case R.id.perfil:
+//                    replaceFragment(R.id.frameLayout,
+//                            PerfilFragment.newInstance("", ""),
+//                            PerfilFragment.PERFIL_FRAGMENT_TAG,
+//                            "perfil");
+//                    break;
                 case R.id.anuncios:
                     replaceFragment(R.id.frameLayout,
                             AnunciosFragment.newInstance("", ""),
