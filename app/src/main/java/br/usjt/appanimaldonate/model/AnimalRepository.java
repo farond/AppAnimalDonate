@@ -108,7 +108,6 @@ public class AnimalRepository {
                 animal.isVacina(),
                 animal.isCastrado());
 
-
         animalService.alterarAnimal(animal.getId(), animalPut)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override

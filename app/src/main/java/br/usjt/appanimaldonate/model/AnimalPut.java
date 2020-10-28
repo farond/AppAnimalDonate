@@ -1,5 +1,7 @@
 package br.usjt.appanimaldonate.model;
 
+import androidx.room.Ignore;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -41,15 +43,17 @@ public class AnimalPut {
     @Expose
     private boolean castrado;
 
-    public AnimalPut(String nomeAnimal,
-                     String generoAnimal,
-                     String racaAnimal,
-                     String especieAnimal,
-                     String porteAnimal,
-                     String idadeAnimal,
-                     String informacao,
-                     boolean vacina,
-                     boolean castrado) {
+    @Ignore
+    public AnimalPut(
+            String nomeAnimal,
+            String idadeAnimal,
+            String informacao,
+            String racaAnimal,
+            String porteAnimal,
+            String especieAnimal,
+            String generoAnimal,
+            boolean vacina,
+            boolean castrado) {
         this.nomeAnimal = nomeAnimal;
         this.generoAnimal = generoAnimal;
         this.racaAnimal = racaAnimal;
