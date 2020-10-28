@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AnimalRepository {
 
-    private static final String CONTATOS_SERVICE_BASE_URL = "https://crudcrud.com";
+    private static final String ANIMAIS_SERVICE_BASE_URL = "https://crudcrud.com";
 
 
     private AnimalService animalService;
@@ -35,7 +35,7 @@ public class AnimalRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
        animalService = new retrofit2.Retrofit.Builder()
-                .baseUrl(CONTATOS_SERVICE_BASE_URL)
+                .baseUrl(ANIMAIS_SERVICE_BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -99,14 +99,15 @@ public class AnimalRepository {
 
         AnimalPut animalPut = new AnimalPut(
                 animal.getNomeAnimal(),
-                animal.getGeneroAnimal(),
+                animal.getIdadeAnimal(),
+                animal.getInformacao(),
                 animal.getRacaAnimal(),
                 animal.getPorteAnimal(),
-                animal.getIdadeAnimal(),
                 animal.getEspecieAnimal(),
-                animal.getInformacao(),
-                animal.isCastrado(),
-                animal.isVacina());
+                animal.getGeneroAnimal(),
+                animal.isVacina(),
+                animal.isCastrado());
+
 
         animalService.alterarAnimal(animal.getId(), animalPut)
                 .enqueue(new Callback<ResponseBody>() {

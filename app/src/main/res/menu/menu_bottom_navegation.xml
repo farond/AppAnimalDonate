@@ -16,10 +16,10 @@
         android:title="Novo anúncio"
         />
 
-    <item android:id="@+id/perfil"
-        android:icon="@drawable/ic_perfil"
-        android:title="Perfil"
-        />
+<!--    <item android:id="@+id/perfil"-->
+<!--        android:icon="@drawable/ic_perfil"-->
+<!--        android:title="Perfil"-->
+<!--        />-->
     <item android:id="@+id/configuracao"
         android:icon="@drawable/ic_configure"
         android:title="Configuração"

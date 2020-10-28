@@ -93,7 +93,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             textViewGeneroAnimal = itemView.findViewById(R.id.textViewGeneroAnimal);
             textViewVacinaAnimal = itemView.findViewById(R.id.textViewVacinaAnimal);
             textViewCastracaoAnimal = itemView.findViewById(R.id.textViewCastracaoAnimal);
-            textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoAnimal);
+            textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
             itemView.setOnClickListener(this);
         }
 
