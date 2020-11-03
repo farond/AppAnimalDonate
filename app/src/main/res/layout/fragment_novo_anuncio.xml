@@ -44,7 +44,8 @@
         app:layout_constraintTop_toBottomOf="@+id/nomeAnimalEditText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:entries="@array/especie_array"/>
+        android:entries="@array/especie_array"
+        />
 
     <Spinner
         android:id="@+id/racaAnimalSpinner"
