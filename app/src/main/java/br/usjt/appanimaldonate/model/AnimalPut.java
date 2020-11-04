@@ -1,5 +1,7 @@
 package br.usjt.appanimaldonate.model;
 
+import androidx.room.Ignore;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,56 +11,65 @@ public class AnimalPut {
     @Expose
     private String nomeAnimal;
 
-    @SerializedName("genero")
-    @Expose
-    private String generoAnimal;
-
-    @SerializedName("raca")
-    @Expose
-    private String racaAnimal;
-
-    @SerializedName("especie")
-    @Expose
-    private String especieAnimal;
-
-    @SerializedName("porte")
-    @Expose
-    private String porteAnimal;
-
     @SerializedName("idade")
     @Expose
     private String idadeAnimal;
-
-    @SerializedName("vacina")
-    @Expose
-    private boolean vacina;
 
     @SerializedName("informacao")
     @Expose
     private String informacao;
 
+    @SerializedName("raca")
+    @Expose
+    private String racaAnimal;
+
+    @SerializedName("porte")
+    @Expose
+    private String porteAnimal;
+
+    @SerializedName("especie")
+    @Expose
+    private String especieAnimal;
+
+    @SerializedName("genero")
+    @Expose
+    private String generoAnimal;
+
+    @SerializedName("vacina")
+    @Expose
+    private boolean vacina;
+
     @SerializedName("castrado")
     @Expose
     private boolean castrado;
 
-    public AnimalPut(String nomeAnimal,
-                     String generoAnimal,
-                     String racaAnimal,
-                     String especieAnimal,
-                     String porteAnimal,
-                     String idadeAnimal,
-                     String informacao,
-                     boolean vacina,
-                     boolean castrado) {
+    @SerializedName("imagem")
+    @Expose
+    private String imagem;
+
+
+    @Ignore
+    public AnimalPut(
+            String nomeAnimal,
+            String idadeAnimal,
+            String informacao,
+            String racaAnimal,
+            String porteAnimal,
+            String especieAnimal,
+            String generoAnimal,
+            boolean vacina,
+            boolean castrado,
+            String imagem) {
         this.nomeAnimal = nomeAnimal;
-        this.generoAnimal = generoAnimal;
-        this.racaAnimal = racaAnimal;
-        this.especieAnimal = especieAnimal;
-        this.porteAnimal = porteAnimal;
         this.idadeAnimal = idadeAnimal;
         this.informacao = informacao;
+        this.racaAnimal = racaAnimal;
+        this.porteAnimal = porteAnimal;
+        this.especieAnimal = especieAnimal;
+        this.generoAnimal = generoAnimal;
         this.vacina = vacina;
         this.castrado = castrado;
+        this.imagem = imagem;
     }
 
     public String getNomeAnimal() {
@@ -67,38 +78,6 @@ public class AnimalPut {
 
     public void setNomeAnimal(String nomeAnimal) {
         this.nomeAnimal = nomeAnimal;
-    }
-
-    public String getGeneroAnimal() {
-        return generoAnimal;
-    }
-
-    public void setGeneroAnimal(String generoAnimal) {
-        this.generoAnimal = generoAnimal;
-    }
-
-    public String getRacaAnimal() {
-        return racaAnimal;
-    }
-
-    public void setRacaAnimal(String racaAnimal) {
-        this.racaAnimal = racaAnimal;
-    }
-
-    public String getEspecieAnimal() {
-        return especieAnimal;
-    }
-
-    public void setEspecieAnimal(String especieAnimal) {
-        this.especieAnimal = especieAnimal;
-    }
-
-    public String getPorteAnimal() {
-        return porteAnimal;
-    }
-
-    public void setPorteAnimal(String porteAnimal) {
-        this.porteAnimal = porteAnimal;
     }
 
     public String getIdadeAnimal() {
@@ -117,6 +96,43 @@ public class AnimalPut {
         this.informacao = informacao;
     }
 
+    public String getRacaAnimal() {
+        return racaAnimal;
+    }
 
+    public void setRacaAnimal(String racaAnimal) {
+        this.racaAnimal = racaAnimal;
+    }
 
+    public String getPorteAnimal() {
+        return porteAnimal;
+    }
+
+    public void setPorteAnimal(String porteAnimal) {
+        this.porteAnimal = porteAnimal;
+    }
+
+    public String getEspecieAnimal() {
+        return especieAnimal;
+    }
+
+    public void setEspecieAnimal(String especieAnimal) {
+        this.especieAnimal = especieAnimal;
+    }
+
+    public String getGeneroAnimal() {
+        return generoAnimal;
+    }
+
+    public void setGeneroAnimal(String generoAnimal) {
+        this.generoAnimal = generoAnimal;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 }

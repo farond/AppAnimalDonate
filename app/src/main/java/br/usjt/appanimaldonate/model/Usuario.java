@@ -2,6 +2,7 @@ package br.usjt.appanimaldonate.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "usuario")
@@ -15,6 +16,7 @@ public class Usuario {
     private String senha;
     private String dataNascimento;
 
+    @Ignore
     public Usuario(String nome, String cpf, String email, String senha, String dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;

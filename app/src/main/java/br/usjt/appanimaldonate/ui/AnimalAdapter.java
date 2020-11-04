@@ -3,6 +3,7 @@ package br.usjt.appanimaldonate.ui;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
+import br.usjt.appanimaldonate.util.ImageUtil;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHolder> {
 
@@ -53,10 +55,13 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             holder.textViewCastracaoAnimal.setText("Animal não Castrado");
         }
 
+        if(animal.getImagem()==null || animal.getImagem().isEmpty()){
+            holder.fotoCard.setImageResource(R.drawable.ic_photo);
+        }else{
+            holder.fotoCard.setImageBitmap(ImageUtil.decode(animal.getImagem()));
+        }
+
         holder.textViewInformacaoAnimal.setText(animal.getInformacao());
-
-
-
     }
 
     @Override
@@ -81,6 +86,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         private TextView textViewVacinaAnimal;
         private TextView textViewCastracaoAnimal;
         private TextView textViewInformacaoAnimal;
+        private ImageView fotoCard;
 
 
         public AnimalHolder(@NonNull View itemView) {
@@ -94,6 +100,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             textViewVacinaAnimal = itemView.findViewById(R.id.textViewVacinaAnimal);
             textViewCastracaoAnimal = itemView.findViewById(R.id.textViewCastracaoAnimal);
             textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
+            fotoCard = itemView.findViewById(R.id.fotoCard);
             itemView.setOnClickListener(this);
         }
 

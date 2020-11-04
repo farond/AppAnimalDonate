@@ -106,7 +106,8 @@ public class AnimalRepository {
                 animal.getEspecieAnimal(),
                 animal.getGeneroAnimal(),
                 animal.isVacina(),
-                animal.isCastrado());
+                animal.isCastrado(),
+                animal.getImagem());
 
 
         animalService.alterarAnimal(animal.getId(), animalPut)

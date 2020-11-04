@@ -13,21 +13,21 @@ import retrofit2.http.Path;
 
 public interface AnimalService {
 
-    @GET("/api/3a8cfa5f8a7248d1aa2cf9ece41f5709/animal")
+    @GET("/api/50d323b3cbb1416f88730730ee6bf427/animal")
     Call<List<Animal>> getAllAnimais();
 
 
-    @POST("/api/3a8cfa5f8a7248d1aa2cf9ece41f5709/animal")
+    @POST("/api/50d323b3cbb1416f88730730ee6bf427/animal")
     Call<ResponseBody> salvarAnimal(
             @Body
                     Animal animal);
 
-    @PUT("/api/3a8cfa5f8a7248d1aa2cf9ece41f5709/animal/{id}")
+    @PUT("/api/50d323b3cbb1416f88730730ee6bf427/animal/{id}")
     Call<ResponseBody> alterarAnimal(
             @Path("id") String id,
             @Body AnimalPut animalPut);
 
-    @DELETE("/api/3a8cfa5f8a7248d1aa2cf9ece41f5709/animal/{id}")
+    @DELETE("/api/50d323b3cbb1416f88730730ee6bf427/animal/{id}")
     Call<ResponseBody> deletarAnimal(
             @Path("id") String id);
 

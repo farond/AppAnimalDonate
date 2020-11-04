@@ -7,15 +7,72 @@
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
     android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp">
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="@color/colorPrimary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="330dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_photo"
+            android:id="@+id/fotoCard"
+            android:layout_marginTop="5dp"/>
 
         <LinearLayout
-            android:id="@+id/layoutDadosContato"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/textViewMeChamo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oiii, eu me chamo "
+                android:textSize="23dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/textViewNomeAnimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXXXXXXXXXX"
+                android:textColor="@color/white"
+                android:textSize="23dp"
+                android:layout_marginTop="10dp"
+                 />
+
+            <TextView
+                android:id="@+id/textViewIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" :)"
+                android:textColor="@color/white"
+                android:textSize="23dp"
+                android:layout_marginTop="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDadosAnuncio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -24,60 +81,62 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textViewNomeAnimal"
-                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewIdadeAnimal"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-            <TextView
-                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                android:id="@+id/textViewInformacaoVacAnimal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
             <TextView
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewRacaAnimal"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewPorteAnimal"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewEspecieAnimal"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewGeneroAnimal"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewVacinaAnimal"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:id="@+id/textViewInformacaoVacAnimal"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:id="@+id/textViewCastracaoAnimal"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-
+        </LinearLayout>
 
         </LinearLayout>
 

@@ -17,37 +17,41 @@ public class Animal implements Serializable {
     @Expose
     private String nomeAnimal;
 
-    @SerializedName("genero")
-    @Expose
-    private String generoAnimal;
-
-    @SerializedName("raca")
-    @Expose
-    private String racaAnimal;
-
-    @SerializedName("especie")
-    @Expose
-    private String especieAnimal;
-
-    @SerializedName("porte")
-    @Expose
-    private String porteAnimal;
-
     @SerializedName("idade")
     @Expose
     private String idadeAnimal;
-
-    @SerializedName("vacina")
-    @Expose
-    private boolean vacina;
 
     @SerializedName("informacao")
     @Expose
     private String informacao;
 
+    @SerializedName("raca")
+    @Expose
+    private String racaAnimal;
+
+    @SerializedName("porte")
+    @Expose
+    private String porteAnimal;
+
+    @SerializedName("especie")
+    @Expose
+    private String especieAnimal;
+
+    @SerializedName("genero")
+    @Expose
+    private String generoAnimal;
+
+    @SerializedName("vacina")
+    @Expose
+    private boolean vacina;
+
     @SerializedName("castrado")
     @Expose
     private boolean castrado;
+
+    @SerializedName("imagem")
+    @Expose
+    private String imagem;
 
     public String getId() {
         return id;
@@ -63,38 +67,6 @@ public class Animal implements Serializable {
 
     public void setNomeAnimal(String nomeAnimal) {
         this.nomeAnimal = nomeAnimal;
-    }
-
-    public String getGeneroAnimal() {
-        return generoAnimal;
-    }
-
-    public void setGeneroAnimal(String generoAnimal) {
-        this.generoAnimal = generoAnimal;
-    }
-
-    public String getRacaAnimal() {
-        return racaAnimal;
-    }
-
-    public void setRacaAnimal(String racaAnimal) {
-        this.racaAnimal = racaAnimal;
-    }
-
-    public String getEspecieAnimal() {
-        return especieAnimal;
-    }
-
-    public void setEspecieAnimal(String especieAnimal) {
-        this.especieAnimal = especieAnimal;
-    }
-
-    public String getPorteAnimal() {
-        return porteAnimal;
-    }
-
-    public void setPorteAnimal(String porteAnimal) {
-        this.porteAnimal = porteAnimal;
     }
 
     public String getIdadeAnimal() {
@@ -113,12 +85,36 @@ public class Animal implements Serializable {
         this.informacao = informacao;
     }
 
-    public boolean isCastrado() {
-        return castrado;
+    public String getRacaAnimal() {
+        return racaAnimal;
     }
 
-    public void setCastrado(boolean castrado) {
-        this.castrado = castrado;
+    public void setRacaAnimal(String racaAnimal) {
+        this.racaAnimal = racaAnimal;
+    }
+
+    public String getPorteAnimal() {
+        return porteAnimal;
+    }
+
+    public void setPorteAnimal(String porteAnimal) {
+        this.porteAnimal = porteAnimal;
+    }
+
+    public String getEspecieAnimal() {
+        return especieAnimal;
+    }
+
+    public void setEspecieAnimal(String especieAnimal) {
+        this.especieAnimal = especieAnimal;
+    }
+
+    public String getGeneroAnimal() {
+        return generoAnimal;
+    }
+
+    public void setGeneroAnimal(String generoAnimal) {
+        this.generoAnimal = generoAnimal;
     }
 
     public boolean isVacina() {
@@ -127,6 +123,22 @@ public class Animal implements Serializable {
 
     public void setVacina(boolean vacina) {
         this.vacina = vacina;
+    }
+
+    public boolean isCastrado() {
+        return castrado;
+    }
+
+    public void setCastrado(boolean castrado) {
+        this.castrado = castrado;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     @Override

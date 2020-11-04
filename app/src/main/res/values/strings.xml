@@ -217,7 +217,7 @@
         <item>Yorkshire Terrier</item>
     </string-array>
 
-    <string-array name="gato_array">
+    <string-array name="raca1_array">
         <item>Não especificado</item>
         <item>Vira-Lata</item>
         <item>American Bobtail Longhair</item>
@@ -293,5 +293,4 @@
         <item>Turkish Van</item>
         <item>York Chocolate</item>
     </string-array>
-
 </resources>
