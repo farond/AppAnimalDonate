@@ -48,8 +48,6 @@ public class CadastroUsuarioActivity extends AppCompatActivity{
                 ConfiguracaoFragment.newInstance(true,""),
                 ConfiguracaoFragment.CONFIGURACAO_FRAGMENT_TAG,
                 "home");
-
-
         }
 
     protected void replaceFragment(@IdRes int containerViewId,

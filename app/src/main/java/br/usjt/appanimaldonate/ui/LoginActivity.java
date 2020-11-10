@@ -2,6 +2,8 @@ package br.usjt.appanimaldonate.ui;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -54,6 +56,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        if (getSupportActionBar() != null) {
+           getSupportActionBar().hide();
+        }
+
     }
 
     @Override
@@ -70,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 //Se usuario tem cadastro
                 textViewNovoCadastro.setVisibility(View.GONE);
                 buttonLogin.setEnabled(true);
-                buttonLogin.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                ResourcesCompat.getDrawable(getResources(), R.drawable.round, null);
 
             }else{
                 textViewNovoCadastro.setVisibility(View.VISIBLE);

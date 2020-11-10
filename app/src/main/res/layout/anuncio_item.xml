@@ -24,53 +24,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="330dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_photo"
-            android:id="@+id/fotoCard"
-            android:layout_marginTop="5dp"/>
+            <ImageView
+                android:layout_width="330dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_photo"
+                android:id="@+id/fotoCard"
+                android:layout_marginTop="5dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                >
 
-            <TextView
-                android:id="@+id/textViewMeChamo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Oiii, eu me chamo "
-                android:textSize="24dp"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                />
+                <TextView
+                    android:id="@+id/textViewMeChamo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Oiii, eu me chamo "
+                    android:textSize="24dp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    />
 
-            <TextView
-                android:id="@+id/textViewNomeAnimal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="XXXXXXXXXXX"
-                android:textColor="@color/white"
-                android:textSize="23dp"
-                android:layout_marginTop="10dp"
-                 />
+                <TextView
+                    android:id="@+id/textViewNomeAnimal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XXXXXXXXXXX"
+                    android:textColor="@color/white"
+                    android:textSize="23dp"
+                    android:layout_marginTop="10dp"
+                    />
 
-            <TextView
-                android:id="@+id/textViewIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" :)"
-                android:textColor="@color/white"
-                android:textSize="24dp"
-                android:layout_marginTop="10dp"
-                />
+                <TextView
+                    android:id="@+id/textViewIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :)"
+                    android:textColor="@color/white"
+                    android:textSize="24dp"
+                    android:layout_marginTop="10dp"
+                    />
 
-        </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -247,33 +247,33 @@
                 android:layout_marginTop="5dp"
                 />
 
-        <LinearLayout
-            android:id="@+id/layoutDadosAnuncio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                android:id="@+id/textViewInformacaoVacAnimal"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="XXXXXXXXXXXXXXX"
-                android:id="@+id/textViewCastracaoAnimal"
-                android:textColor="@color/white"
-                android:layout_width="match_parent"
-                android:textSize="18dp"
+            <LinearLayout
+                android:id="@+id/layoutDadosAnuncio"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"/>
+                android:orientation="vertical"
+                android:layout_margin="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </LinearLayout>
+                <TextView
+                    android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                    android:id="@+id/textViewInformacaoVacAnimal"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="XXXXXXXXXXXXXXX"
+                    android:id="@+id/textViewCastracaoAnimal"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"/>
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/editarAnuncioButton"
@@ -287,9 +287,6 @@
             </Button>
 
         </LinearLayout>
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -86,6 +86,7 @@ public class ConfiguracaoFragment extends Fragment implements Validator.Validati
             vemDoLogin = getArguments().getBoolean(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override

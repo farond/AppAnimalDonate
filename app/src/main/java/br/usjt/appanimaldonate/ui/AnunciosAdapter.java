@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,22 +17,24 @@ import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
 import br.usjt.appanimaldonate.util.ImageUtil;
 
-public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHolder> {
+public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.AnunciosHolder> {
 
     private List<Animal> results = new ArrayList<>();
-    private static ItemClickListener itemClickListener;
+    private static AnunciosAdapter.ItemClickListener itemClickListener;
+    private ItemClickListener ClickListener;
+
 
     @NonNull
     @Override
-    public AnimalHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AnunciosAdapter.AnunciosHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.animal_item, parent, false);
+                .inflate(R.layout.anuncio_item, parent, false);
 
-        return new AnimalHolder(itemView);
+        return new AnunciosAdapter.AnunciosHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AnimalAdapter.AnimalHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AnunciosAdapter.AnunciosHolder holder, int position) {
 
         Animal animal = results.get(position);
 
@@ -76,7 +77,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         notifyDataSetChanged();
     }
 
-    class AnimalHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class AnunciosHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
         private TextView textViewNomeAnimal;
@@ -88,10 +89,11 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         private TextView textViewVacinaAnimal;
         private TextView textViewCastracaoAnimal;
         private TextView textViewInformacaoAnimal;
+        private Button editarAnuncioButton;
         private ImageView fotoCard;
 
 
-        public AnimalHolder(@NonNull View itemView) {
+        public AnunciosHolder(@NonNull View itemView) {
             super(itemView);
             textViewNomeAnimal = itemView.findViewById(R.id.textViewNomeAnimal);
             textViewEspecieAnimal = itemView.findViewById(R.id.textViewEspecieAnimal);
@@ -103,28 +105,26 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             textViewCastracaoAnimal = itemView.findViewById(R.id.textViewCastracaoAnimal);
             textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
             fotoCard = itemView.findViewById(R.id.fotoCard);
-            itemView.setOnClickListener(this);
-        }
-
-        public void EditarAnuncio(View v){
-
+            editarAnuncioButton = itemView.findViewById(R.id.editarAnuncioButton);
+            editarAnuncioButton.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             if(itemClickListener != null) {
-                itemClickListener.onItemClick(getAdapterPosition(), results.get(getAdapterPosition()));
+                itemClickListener.onClick(getAdapterPosition(), results.get(getAdapterPosition()));
             }
         }
     }
 
-    public void setOnItemClickListener(ItemClickListener itemClickListener){
-        this.itemClickListener = itemClickListener;
+    public void onClickAnuncioAdapter(List<Animal> results, ItemClickListener listener){
+        this.ClickListener = listener;
     }
 
     public interface ItemClickListener {
-        void onItemClick(int position, Animal animal);
+        void onClick(int position, Animal animal);
     }
+
+
+
 }
-
-

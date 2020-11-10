@@ -8,17 +8,34 @@
     tools:context=".ui.LoginActivity"
     android:background="@drawable/cao12">
 
+
     <TextView
         android:id="@+id/tituloTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="PetFriendly"
-        android:textColor="@color/titulos_formulario"
+        android:textColor="@color/white"
         android:textSize="14pt"
-        android:layout_marginTop="50dp"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/LogoPet" />
+
+    <ImageView
+        android:id="@+id/LogoPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pet_friendly"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+    </ImageView>
 
     <EditText
         android:id="@+id/usuarioEditText"
@@ -32,7 +49,7 @@
         android:drawablePadding="12dp"
         android:textSize="12pt"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintTop_toBottomOf="@+id/tituloTextView"
@@ -66,12 +83,13 @@
         android:onClick="novoCadastro"
         android:visibility="gone"
         android:textSize="8pt"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/senhaEditText"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
     <Button
         android:id="@+id/loginButton"
