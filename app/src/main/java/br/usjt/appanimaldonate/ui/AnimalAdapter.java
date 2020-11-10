@@ -25,7 +25,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
 
     @NonNull
     @Override
-    public AnimalHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AnimalAdapter.AnimalHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.animal_item, parent, false);
 
@@ -88,6 +88,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         private TextView textViewVacinaAnimal;
         private TextView textViewCastracaoAnimal;
         private TextView textViewInformacaoAnimal;
+        private Button  adocaoAnuncioButton;
         private ImageView fotoCard;
 
 
@@ -104,16 +105,15 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
             fotoCard = itemView.findViewById(R.id.fotoCard);
             itemView.setOnClickListener(this);
-        }
-
-        public void EditarAnuncio(View v){
-
+            adocaoAnuncioButton = itemView.findViewById(R.id.adocaoAnuncioButton);
+            adocaoAnuncioButton.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             if(itemClickListener != null) {
                 itemClickListener.onItemClick(getAdapterPosition(), results.get(getAdapterPosition()));
+
             }
         }
     }

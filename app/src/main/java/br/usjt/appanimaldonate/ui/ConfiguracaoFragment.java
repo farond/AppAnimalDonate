@@ -58,6 +58,7 @@ public class ConfiguracaoFragment extends Fragment implements Validator.Validati
 
     @NotEmpty (message = "Esse campo não pode ser vazio")
     private EditText editTextDataNascimento;
+    private EditText editTextTelefone;
     private Usuario usuarioCorrente;
     private Button buttonSalvar;
 
@@ -112,6 +113,8 @@ public class ConfiguracaoFragment extends Fragment implements Validator.Validati
         editTextConfirmaSenha = getView().findViewById(R.id.confirmaSenhaEditText);
         editTextDataNascimento = getView().findViewById(R.id.dataNascimentoEditText);
         editTextDataNascimento.addTextChangedListener(Mask.insert(Mask.DATANASC_MASK, editTextDataNascimento));
+        editTextTelefone = getView().findViewById(R.id.telefoneUsuarioEditText);
+        editTextTelefone.addTextChangedListener(Mask.insert(Mask.CELULAR_MASK, editTextTelefone));
         buttonSalvar = getView().findViewById(R.id.salvarButton);
 
         buttonSalvar.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +143,7 @@ public class ConfiguracaoFragment extends Fragment implements Validator.Validati
             editTextEmail.setText(usuario.getEmail());
             editTextSenha.setText(usuario.getSenha());
             editTextDataNascimento.setText(usuario.getDataNascimento());
+            editTextTelefone.setText(usuario.getTelefone());
         }
     }
 
@@ -149,6 +153,7 @@ public class ConfiguracaoFragment extends Fragment implements Validator.Validati
         usuarioCorrente.setEmail(editTextEmail.getText().toString());
         usuarioCorrente.setSenha(editTextSenha.getText().toString());
         usuarioCorrente.setDataNascimento(editTextDataNascimento.getText().toString());
+        usuarioCorrente.setTelefone(editTextTelefone.getText().toString());
         usuarioViewModel.insert(usuarioCorrente);
         Hawk.put("tem_cadastro",true);
         validator.validate();

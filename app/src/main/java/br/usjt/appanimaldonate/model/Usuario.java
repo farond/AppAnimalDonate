@@ -15,6 +15,7 @@ public class Usuario {
     private String email;
     private String senha;
     private String dataNascimento;
+    private String telefone;
 
     @Ignore
     public Usuario(String nome, String cpf, String email, String senha, String dataNascimento) {
@@ -23,6 +24,7 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
     }
 
     public Usuario() {
@@ -74,5 +76,13 @@ public class Usuario {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

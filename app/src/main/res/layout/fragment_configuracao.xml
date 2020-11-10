@@ -127,6 +127,24 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmaSenhaEditText" />
 
+    <EditText
+        android:id="@+id/telefoneUsuarioEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:hint="11999999999"
+        android:inputType="number"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="12pt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataNascimentoEditText" />
     <Button
         android:id="@+id/salvarButton"
         android:layout_width="match_parent"
