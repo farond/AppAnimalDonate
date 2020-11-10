@@ -107,6 +107,9 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
             fotoCard = itemView.findViewById(R.id.fotoCard);
             editarAnuncioButton = itemView.findViewById(R.id.editarAnuncioButton);
             editarAnuncioButton.setOnClickListener(this);
+
+            itemView.setOnClickListener(this);
+
         }
 
         @Override
@@ -117,13 +120,14 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         }
     }
 
-    public void onClickAnuncioAdapter(List<Animal> results, ItemClickListener listener){
-        this.ClickListener = listener;
+    public void setOnItemClickListener(AnunciosAdapter.ItemClickListener itemClickListener){
+        this.itemClickListener = itemClickListener;
     }
 
     public interface ItemClickListener {
         void onClick(int position, Animal animal);
     }
+
 
 
 

@@ -70,7 +70,7 @@ public class MeusAnunciosFragment extends Fragment {
             }
         });
 
-        adapter.onClickAnuncioAdapter((position, animal) -> replaceFragment(R.id.frameLayout,
+        adapter.setOnItemClickListener((position, animal) -> replaceFragment(R.id.frameLayout,
                 NovoAnuncioFragment.newInstance("", animal),
                 NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
                 "animal_click"));
