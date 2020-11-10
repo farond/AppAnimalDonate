@@ -1,5 +1,8 @@
 package br.usjt.appanimaldonate.ui;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +13,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
+import br.usjt.appanimaldonate.model.Usuario;
 import br.usjt.appanimaldonate.util.ImageUtil;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHolder> {
 
+    private Usuario usuario;
     private List<Animal> results = new ArrayList<>();
     private static ItemClickListener itemClickListener;
+
+    public AnimalAdapter(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public AnimalAdapter() {
+
+    }
 
     @NonNull
     @Override
@@ -114,6 +126,16 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             if(itemClickListener != null) {
                 itemClickListener.onItemClick(getAdapterPosition(), results.get(getAdapterPosition()));
 
+                String telefone =  usuario.getTelefone();
+
+                boolean installed = appInstalledOrNot("com.whatsapp");
+
+                if(installed){
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://wa.we/55" + telefone));
+                }
+
             }
         }
     }
@@ -124,6 +146,19 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
 
     public interface ItemClickListener {
         void onItemClick(int position, Animal animal);
+    }
+
+    private boolean appInstalledOrNot(String url){
+        PackageManager packageManager = getPackageManager;
+        boolean app_installed;
+
+        try {
+            packageManager.getPackageInfo(url, PackageManager.GET_ACTIVITIES);
+            app_installed =  true;
+        }catch (PackageManager.NameNotFoundException e){
+            app_installed = false;
+        }
+        return  app_installed;
     }
 }
 
