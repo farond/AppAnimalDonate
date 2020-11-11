@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ import br.usjt.appanimaldonate.util.ImageUtil;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHolder> {
 
-    private Usuario usuario;
+    Usuario usuario = new Usuario();
     private List<Animal> results = new ArrayList<>();
     private static ItemClickListener itemClickListener;
 
@@ -116,7 +117,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             textViewCastracaoAnimal = itemView.findViewById(R.id.textViewCastracaoAnimal);
             textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
             fotoCard = itemView.findViewById(R.id.fotoCard);
-            itemView.setOnClickListener(this);
             adocaoAnuncioButton = itemView.findViewById(R.id.adocaoAnuncioButton);
             adocaoAnuncioButton.setOnClickListener(this);
         }
@@ -128,13 +128,12 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
 
                 String telefone =  usuario.getTelefone();
 
-                boolean installed = appInstalledOrNot("com.whatsapp");
+//                boolean installed = appInstalledOrNot("com.whatsapp");
 
-                if(installed){
 
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("https://wa.we/55" + telefone));
-                }
+                    intent.setData(Uri.parse("https://wa.me/55" + telefone));
+
 
             }
         }
@@ -148,18 +147,18 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         void onItemClick(int position, Animal animal);
     }
 
-    private boolean appInstalledOrNot(String url){
-        PackageManager packageManager = getPackageManager;
+    /*private boolean appInstalledOrNot(String url){
+        PackageManager packageManager = getPackageManager();;
         boolean app_installed;
 
         try {
-            packageManager.getPackageInfo(url, PackageManager.GET_ACTIVITIES);
+            packageManager.getPackageInfo(url, PackageManager.GET_META_DATA);
             app_installed =  true;
         }catch (PackageManager.NameNotFoundException e){
             app_installed = false;
         }
         return  app_installed;
-    }
+    }*/
 }
 
 

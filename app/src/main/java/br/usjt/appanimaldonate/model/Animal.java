@@ -1,5 +1,6 @@
 package br.usjt.appanimaldonate.model;
 
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
@@ -7,8 +8,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+@Entity
 public class Animal implements Serializable {
 
+    @PrimaryKey
     @SerializedName("_id")
     @Expose
     private String id;
@@ -52,6 +55,10 @@ public class Animal implements Serializable {
     @SerializedName("imagem")
     @Expose
     private String imagem;
+
+    /*@SerializedName("usuarioTelefone")
+    @Expose
+    private String usuarioTelefone;*/
 
     public String getId() {
         return id;
@@ -140,6 +147,14 @@ public class Animal implements Serializable {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
+   /* public String getUsuarioTelefone() {
+        return usuarioTelefone;
+    }
+
+    public void setUsuarioTelefone(String usuarioTelefone) {
+        this.usuarioTelefone = usuarioTelefone;
+    }*/
 
     @Override
     public String toString() {

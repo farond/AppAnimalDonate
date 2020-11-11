@@ -47,6 +47,10 @@ public class AnimalPut {
     @Expose
     private String imagem;
 
+    /*@SerializedName("usuarioTelefone")
+    @Expose
+    private String usuarioTelefone;*/
+
 
     @Ignore
     public AnimalPut(
@@ -70,6 +74,7 @@ public class AnimalPut {
         this.vacina = vacina;
         this.castrado = castrado;
         this.imagem = imagem;
+
     }
 
     public String getNomeAnimal() {
@@ -135,4 +140,12 @@ public class AnimalPut {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
+    /*public String getUsuarioTelefone() {
+        return usuarioTelefone;
+    }
+
+    public void setUsuarioTelefone(String usuarioTelefone) {
+        this.usuarioTelefone = usuarioTelefone;
+    }*/
 }

@@ -18,7 +18,7 @@ public class Usuario {
     private String telefone;
 
     @Ignore
-    public Usuario(String nome, String cpf, String email, String senha, String dataNascimento) {
+    public Usuario(String nome, String cpf, String email, String senha, String dataNascimento, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
