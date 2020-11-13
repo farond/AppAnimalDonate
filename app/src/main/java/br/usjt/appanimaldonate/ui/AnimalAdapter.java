@@ -125,10 +125,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         public void onClick(View v) {
             if(itemClickListener != null) {
                 itemClickListener.onItemClick(getAdapterPosition(), results.get(getAdapterPosition()));
-                Usuario usuario = new Usuario();
-                String telefone =  usuario.getTelefone();
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("https://wa.me/55" + telefone));
             }
         }
     }

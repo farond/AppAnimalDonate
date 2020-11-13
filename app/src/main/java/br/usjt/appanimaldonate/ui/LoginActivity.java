@@ -99,6 +99,8 @@ public class LoginActivity extends AppCompatActivity {
             if(usuarioCorrente.getEmail().equalsIgnoreCase(editTextUsuario.getText().toString())
                     && usuarioCorrente.getSenha().equalsIgnoreCase(editTextSenha.getText().toString())){
                 editTextSenha.setText("");
+                Hawk.put("nome_usuario",usuarioCorrente.getNome());
+                Hawk.put("telefone_usuario",usuarioCorrente.getTelefone());
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             }else{

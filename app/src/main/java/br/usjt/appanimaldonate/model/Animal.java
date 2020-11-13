@@ -56,9 +56,9 @@ public class Animal implements Serializable {
     @Expose
     private String imagem;
 
-    /*@SerializedName("usuarioTelefone")
+    @SerializedName("usuarioTelefone")
     @Expose
-    private String usuarioTelefone;*/
+    private String usuarioTelefone;
 
     public String getId() {
         return id;
@@ -148,13 +148,13 @@ public class Animal implements Serializable {
         this.imagem = imagem;
     }
 
-   /* public String getUsuarioTelefone() {
+    public String getUsuarioTelefone() {
         return usuarioTelefone;
     }
 
     public void setUsuarioTelefone(String usuarioTelefone) {
         this.usuarioTelefone = usuarioTelefone;
-    }*/
+    }
 
     @Override
     public String toString() {

@@ -1,5 +1,8 @@
 package br.usjt.appanimaldonate.ui;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.IdRes;
@@ -19,6 +22,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.orhanobut.hawk.Hawk;
 
 import java.util.List;
 
@@ -76,11 +82,39 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        adapter.setOnItemClickListener((position, animal) -> replaceFragment(R.id.frameLayout,
-                NovoAnuncioFragment.newInstance("",animal),
-                NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
-                "animal_click"));
+        adapter.setOnItemClickListener(new AnimalAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(int position, Animal animal) {
+                if (appInstalledOrNot("com.whatsapp")){
+                    String message = "Olá ! Eu me chamo "+Hawk.get("nome_usuario")+", telefone:"+Hawk.get("telefone_usuario")
+                            +" e gostaria de saber mais informações sobre o animal: "+animal.getNomeAnimal();
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+55"+ animal.getUsuarioTelefone() + "&text="+message));
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(getActivity(), "Whatsapp não está intalado neste aparelho", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
+
+
+
+
+
+
+    }
+
+    private boolean appInstalledOrNot(String url){
+        PackageManager packageManager =getActivity().getPackageManager();
+        boolean app_installed;
+        try {
+            packageManager.getPackageInfo(url,PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        }catch (PackageManager.NameNotFoundException e){
+            app_installed = false;
+        }
+        return app_installed;
     }
 
 
