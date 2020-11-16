@@ -4,18 +4,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +12,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.orhanobut.hawk.Hawk;
 
 import java.util.List;
@@ -31,6 +28,7 @@ import java.util.List;
 import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
 import br.usjt.appanimaldonate.model.AnimalViewModel;
+import br.usjt.appanimaldonate.model.Usuario;
 
 public class HomeFragment extends Fragment {
 
@@ -46,6 +44,7 @@ public class HomeFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    private Usuario usuario;
 
     public HomeFragment() {
     }
@@ -87,16 +86,15 @@ public class HomeFragment extends Fragment {
             public void onItemClick(int position, Animal animal) {
                 if (appInstalledOrNot("com.whatsapp")){
                     String message = "Olá ! Eu me chamo "+Hawk.get("nome_usuario")+", telefone:"+Hawk.get("telefone_usuario")
-                            +" e gostaria de saber mais informações sobre o animal: "+animal.getNomeAnimal();
+                            +" e gostaria de saber mais informações sobre o animal: "+ animal.getNomeAnimal();
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+55"+ animal.getUsuarioTelefone() + "&text="+message));
+                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+55"+ animal.usuarioTelefone(usuario) + "&text="+message));
                     startActivity(intent);
                 }else {
                     Toast.makeText(getActivity(), "Whatsapp não está intalado neste aparelho", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
 
 
 

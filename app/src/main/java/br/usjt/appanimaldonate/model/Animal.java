@@ -1,6 +1,7 @@
 package br.usjt.appanimaldonate.model;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
@@ -8,13 +9,22 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys =
+@ForeignKey(entity = Usuario.class ,
+        parentColumns = "id",
+        childColumns = "usuarioId",
+        onDelete = CASCADE))
 public class Animal implements Serializable {
 
     @PrimaryKey
     @SerializedName("_id")
     @Expose
     private String id;
+
+    @SerializedName("usuarioId")
+    private String usuarioId;
 
     @SerializedName("nome")
     @Expose
@@ -164,5 +174,12 @@ public class Animal implements Serializable {
                 ", idadeAnimal='" + idadeAnimal + '\'' +
                 ", informacao='" + informacao + '\'' +
                 '}';
+    }
+
+    public String usuarioTelefone(Usuario usuario){
+        if(usuario != null && usuario.getId() > 0){
+        usuario.getTelefone();
+        }
+        return usuarioTelefone;
     }
 }
