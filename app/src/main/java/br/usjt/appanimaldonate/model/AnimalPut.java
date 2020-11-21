@@ -47,9 +47,9 @@ public class AnimalPut {
     @Expose
     private String imagem;
 
-    /*@SerializedName("usuarioTelefone")
+    @SerializedName("usuarioTelefone")
     @Expose
-    private String usuarioTelefone;*/
+    private String usuarioTelefone;
 
 
     @Ignore
@@ -63,7 +63,8 @@ public class AnimalPut {
             String generoAnimal,
             boolean vacina,
             boolean castrado,
-            String imagem) {
+            String imagem,
+            String usuarioTelefone) {
         this.nomeAnimal = nomeAnimal;
         this.idadeAnimal = idadeAnimal;
         this.informacao = informacao;
@@ -74,7 +75,7 @@ public class AnimalPut {
         this.vacina = vacina;
         this.castrado = castrado;
         this.imagem = imagem;
-
+        this.usuarioTelefone = usuarioTelefone;
     }
 
     public String getNomeAnimal() {
@@ -141,11 +142,11 @@ public class AnimalPut {
         this.imagem = imagem;
     }
 
-    /*public String getUsuarioTelefone() {
+    public String getUsuarioTelefone() {
         return usuarioTelefone;
     }
 
     public void setUsuarioTelefone(String usuarioTelefone) {
         this.usuarioTelefone = usuarioTelefone;
-    }*/
+    }
 }

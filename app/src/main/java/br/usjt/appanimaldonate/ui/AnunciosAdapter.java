@@ -15,6 +15,7 @@ import java.util.List;
 
 import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
+import br.usjt.appanimaldonate.model.AnimalViewModel;
 import br.usjt.appanimaldonate.util.ImageUtil;
 
 public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.AnunciosHolder> {
@@ -22,6 +23,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     private List<Animal> results = new ArrayList<>();
     private static AnunciosAdapter.ItemClickListener itemClickListener;
     private ItemClickListener ClickListener;
+    private AnimalViewModel animalViewModel;
 
 
     @NonNull
@@ -90,6 +92,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         private TextView textViewCastracaoAnimal;
         private TextView textViewInformacaoAnimal;
         private Button editarAnuncioButton;
+        private Button deletarAnuncioButton;
         private ImageView fotoCard;
 
 
@@ -106,9 +109,16 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
             textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
             fotoCard = itemView.findViewById(R.id.fotoCard);
             editarAnuncioButton = itemView.findViewById(R.id.editarAnuncioButton);
+            deletarAnuncioButton = itemView.findViewById(R.id.deletarAnuncioButton);
             editarAnuncioButton.setOnClickListener(this);
 
-            itemView.setOnClickListener(this);
+
+            /*deletarAnuncioButton.setOnClickListener(v -> {
+                if (itemClickListener != null) {
+                    itemClickListener.onClick(getAdapterPosition(), results.get(getAdapterPosition()));
+                } DELETAR ANUNCIO
+            });*/
+
 
         }
 
@@ -123,6 +133,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     public void setOnItemClickListener(AnunciosAdapter.ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
+
 
     public interface ItemClickListener {
         void onClick(int position, Animal animal);

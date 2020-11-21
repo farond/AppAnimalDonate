@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -33,6 +34,7 @@ import com.orhanobut.hawk.Hawk;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -53,10 +55,12 @@ public class NovoAnuncioFragment extends Fragment {
 
     private EditText editTextNomeAnimal;
     private EditText editTextIdadeAnimal;
+    private EditText editTextTelefoneUser;
     private Spinner spinnerEspecieAnimal;
     private Spinner spinnerPorteAnimal;
     private Spinner spinnerRacaAnimal;
     private Spinner spinnerGeneroAnimal;
+    private Spinner spinnerIdadeAnimal;
     private EditText editTextInformacaoVacAnimal;
     private Switch switchVacinacaoAnimal;
     private Switch switchCastracaoAnimal;
@@ -71,7 +75,7 @@ public class NovoAnuncioFragment extends Fragment {
     private Animal animal;
 
     public NovoAnuncioFragment() {
-        // Required empty public constructor
+
     }
 
     public static NovoAnuncioFragment newInstance(String param1, Animal animal) {
@@ -131,7 +135,20 @@ public class NovoAnuncioFragment extends Fragment {
         novoAnuncioCorrente = new Animal();
 
         editTextNomeAnimal = getView().findViewById(R.id.nomeAnimalEditText);
-        editTextIdadeAnimal = getView().findViewById(R.id.idadeAnimalEditText);
+//        editTextIdadeAnimal = getView().findViewById(R.id.idadeAnimalEditText);
+        spinnerIdadeAnimal = getView().findViewById(R.id.idadeAnimalSpinner);
+        spinnerIdadeAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("ITEMIDADESELECIONADO", "POSIÇÃO-->"+position);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         editTextInformacaoVacAnimal = getView().findViewById(R.id.informacaoVacAnimalEditText);
         spinnerRacaAnimal = getView().findViewById(R.id.racaAnimalSpinner);
         spinnerRacaAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -189,9 +206,23 @@ public class NovoAnuncioFragment extends Fragment {
         });
 
         switchVacinacaoAnimal = getView().findViewById(R.id.vacinacaoAnimalSwitch);
+        switchVacinacaoAnimal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    editTextInformacaoVacAnimal.setVisibility(View.VISIBLE);
+                }
+                else{
+                    editTextInformacaoVacAnimal.setVisibility(View.INVISIBLE);
+                    editTextInformacaoVacAnimal.setText("");
+                }
+            }
+        });
+
         switchCastracaoAnimal = getView().findViewById(R.id.castracaoAnimalSwitch);
         imageViewFoto = getView().findViewById(R.id.imageViewFoto);
         textViewLinkFoto = getView().findViewById(R.id.textViewLinkFoto);
+        editTextTelefoneUser = getView().findViewById(R.id.telefoneUserEditText);
         buttonSalvarAnuncio = getView().findViewById(R.id.salvarAnuncioButton);
 
         textViewLinkFoto.setOnClickListener(new View.OnClickListener() {
@@ -211,8 +242,9 @@ public class NovoAnuncioFragment extends Fragment {
         if(animal !=null){
             novoAnuncioCorrente = animal;
             editTextNomeAnimal.setText(novoAnuncioCorrente.getNomeAnimal());
-            editTextIdadeAnimal.setText(novoAnuncioCorrente.getIdadeAnimal());
+//            editTextIdadeAnimal.setText(novoAnuncioCorrente.getIdadeAnimal());
             editTextInformacaoVacAnimal.setText(novoAnuncioCorrente.getInformacao());
+            spinnerIdadeAnimal.setSelection(((ArrayAdapter)spinnerIdadeAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getIdadeAnimal()));;
             spinnerRacaAnimal.setSelection(((ArrayAdapter)spinnerRacaAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getRacaAnimal()));
             spinnerPorteAnimal.setSelection(((ArrayAdapter)spinnerPorteAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getPorteAnimal()));
             spinnerEspecieAnimal.setSelection(((ArrayAdapter)spinnerEspecieAnimal.getAdapter()).getPosition(novoAnuncioCorrente.getEspecieAnimal()));
@@ -220,6 +252,7 @@ public class NovoAnuncioFragment extends Fragment {
 //          spinnerRacaAnimal.setSelection(((ArrayAdapter)spinnerRacaAnimal.getAdapter()).getPosition(animalCorrente.getRacaAnimal()));
             switchVacinacaoAnimal.setChecked(novoAnuncioCorrente.isVacina());
             switchCastracaoAnimal.setChecked(novoAnuncioCorrente.isCastrado());
+            editTextTelefoneUser.setText(novoAnuncioCorrente.getUsuarioTelefone());
             if(novoAnuncioCorrente.getImagem() == null || novoAnuncioCorrente.getImagem().isEmpty()){
                 imageViewFoto.setImageResource(R.drawable.ic_photo);
             }else{
@@ -231,7 +264,8 @@ public class NovoAnuncioFragment extends Fragment {
 
     public void salvar(){
         novoAnuncioCorrente.setNomeAnimal(editTextNomeAnimal.getText().toString());
-        novoAnuncioCorrente.setIdadeAnimal(editTextIdadeAnimal.getText().toString());
+//        novoAnuncioCorrente.setIdadeAnimal(editTextIdadeAnimal.getText().toString());
+        novoAnuncioCorrente.setIdadeAnimal(spinnerIdadeAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setInformacao(editTextInformacaoVacAnimal.getText().toString());
         novoAnuncioCorrente.setRacaAnimal(spinnerRacaAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setPorteAnimal(spinnerPorteAnimal.getSelectedItem().toString());
@@ -239,6 +273,7 @@ public class NovoAnuncioFragment extends Fragment {
         novoAnuncioCorrente.setGeneroAnimal(spinnerGeneroAnimal.getSelectedItem().toString());
         novoAnuncioCorrente.setVacina(switchVacinacaoAnimal.isChecked());
         novoAnuncioCorrente.setCastrado(switchCastracaoAnimal.isChecked());
+        novoAnuncioCorrente.setUsuarioTelefone(editTextTelefoneUser.getText().toString());
         if(animal == null){
             animalViewModel.salvarAnimal(novoAnuncioCorrente);
         }else{
@@ -257,13 +292,15 @@ public class NovoAnuncioFragment extends Fragment {
             animal.setPorteAnimal(animal.getPorteAnimal());
             animal.setIdadeAnimal(animal.getIdadeAnimal());
             animal.setInformacao(animal.getInformacao());
+            animal.setUsuarioTelefone(animal.getUsuarioTelefone());
         }
     }
 
     private void limparCampos(){
         editTextNomeAnimal.setText("");
-        editTextIdadeAnimal.setText("");
+//        editTextIdadeAnimal.setText("");
         editTextInformacaoVacAnimal.setText("");
+        spinnerIdadeAnimal.setSelection(0);
         spinnerRacaAnimal.setSelection(0);
         spinnerPorteAnimal.setSelection(0);
         spinnerEspecieAnimal.setSelection(0);
@@ -271,6 +308,7 @@ public class NovoAnuncioFragment extends Fragment {
         switchVacinacaoAnimal.setChecked(false);
         switchCastracaoAnimal.setChecked(false);
         imageViewFoto.setImageResource(R.drawable.ic_photo);
+        editTextTelefoneUser.setText("");
     }
 
     private void tirarFoto(){

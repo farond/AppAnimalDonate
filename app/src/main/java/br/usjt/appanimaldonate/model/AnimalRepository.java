@@ -73,6 +73,8 @@ public class AnimalRepository {
         return alteradoSucessoMutableLiveData;
     }
 
+
+
     public void salvarAnimal(Animal animal){
 
         animalService.salvarAnimal(animal)
@@ -107,7 +109,8 @@ public class AnimalRepository {
                 animal.getGeneroAnimal(),
                 animal.isVacina(),
                 animal.isCastrado(),
-                animal.getImagem()
+                animal.getImagem(),
+                animal.getUsuarioTelefone()
                );
 
 
@@ -129,7 +132,9 @@ public class AnimalRepository {
                 });
     }
 
-    public Call<ResponseBody> deletarAnimal(Animal animal){
+    public Call<ResponseBody> deletarAnimal(Animal animal) {
         return animalService.deletarAnimal(animal.getId());
+
     }
 }
+

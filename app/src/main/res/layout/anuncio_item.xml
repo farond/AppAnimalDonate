@@ -286,6 +286,17 @@
 
             </Button>
 
+            <Button
+                android:id="@+id/deletarAnuncioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deletar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+            </Button>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

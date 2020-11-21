@@ -11,6 +11,36 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string-array name="idade_array">
+        <item>Não informado</item>
+        <item>Menos de 1 mês</item>
+        <item>1 meses</item>
+        <item>2 meses</item>
+        <item>3 meses</item>
+        <item>4 meses</item>
+        <item>5 meses</item>
+        <item>1 ano</item>
+        <item>2 anos</item>
+        <item>3 anos</item>
+        <item>4 anos</item>
+        <item>5 anos</item>
+        <item>6 anos</item>
+        <item>7 anos</item>
+        <item>8 anos</item>
+        <item>9 anos</item>
+        <item>10 anos</item>
+        <item>11 anos</item>
+        <item>12 anos</item>
+        <item>13 anos</item>
+        <item>14 anos</item>
+        <item>15 anos</item>
+        <item>16 anos</item>
+        <item>17 anos</item>
+        <item>18 anos</item>
+        <item>19 anos</item>
+        <item>20 anos</item>
+    </string-array>
+
     <string-array name="especie_array">
         <item>Não especificado</item>
         <item>Cachorro</item>

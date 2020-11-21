@@ -3,6 +3,7 @@ package br.usjt.appanimaldonate.ui;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -14,8 +15,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.orhanobut.hawk.Hawk;
 
 import br.usjt.appanimaldonate.R;
 
@@ -29,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupNavegationView();
         replaceFragment(R.id.frameLayout,HomeFragment.newInstance("",""),HomeFragment.HOME_FRAGMENT_TAG,"home");
+
+
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.custom_action_bar_layout);
+        View view =getSupportActionBar().getCustomView();
+
+        TextView boasvindasTextView = (TextView) view.findViewById(R.id.boasVindasTextView);
+        boasvindasTextView.setText("Olá, " + Hawk.get("nome_usuario"));
+
     }
 
     private void setupNavegationView() {

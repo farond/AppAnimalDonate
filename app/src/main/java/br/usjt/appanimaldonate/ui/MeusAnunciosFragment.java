@@ -74,6 +74,7 @@ public class MeusAnunciosFragment extends Fragment {
                 NovoAnuncioFragment.newInstance("", animal),
                 NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
                 "animal_click"));
+
     }
 
     @Override

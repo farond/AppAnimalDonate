@@ -24,13 +24,8 @@ import br.usjt.appanimaldonate.util.ImageUtil;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHolder> {
 
-    private Usuario usuario;
     private List<Animal> results = new ArrayList<>();
     private static ItemClickListener itemClickListener;
-
-    public AnimalAdapter(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
     public AnimalAdapter() {
 
@@ -133,22 +128,11 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         this.itemClickListener = itemClickListener;
     }
 
+
     public interface ItemClickListener {
         void onItemClick(int position, Animal animal);
     }
 
-    /*private boolean appInstalledOrNot(String url){
-        PackageManager packageManager = getPackageManager();;
-        boolean app_installed;
-
-        try {
-            packageManager.getPackageInfo(url, PackageManager.GET_META_DATA);
-            app_installed =  true;
-        }catch (PackageManager.NameNotFoundException e){
-            app_installed = false;
-        }
-        return  app_installed;
-    }*/
 }
 
 

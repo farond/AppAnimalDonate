@@ -50,4 +50,8 @@ public class AnimalViewModel extends AndroidViewModel {
         Log.d("ANIMALKP","na view");
         animalRepository.alterarAnimal(animal);
     }
+
+    public void deletarAnimal(int adapterPosition, Animal animal){
+        animalRepository.deletarAnimal(animal);
+    }
 }

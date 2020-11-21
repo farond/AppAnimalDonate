@@ -85,7 +85,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(int position, Animal animal) {
                 if (appInstalledOrNot("com.whatsapp")){
-                    String message = "Olá ! Eu me chamo "+Hawk.get("nome_usuario")+", telefone:"+Hawk.get("telefone_usuario")
+                    String message = "Olá ! Eu me chamo "+Hawk.get("nome_usuario")+", telefone: "+Hawk.get("telefone_usuario")
                             +" e gostaria de saber mais informações sobre o animal: "+ animal.getNomeAnimal();
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+55"+ animal.usuarioTelefone(usuario) + "&text="+message));
@@ -95,9 +95,6 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-
-
-
 
 
 
