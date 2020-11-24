@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
-            android:windowSoftInputMode="adjustNothing"></activity>
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".ui.LoginActivity">
         </activity>
         <activity android:name=".ui.CadastroUsuarioActivity" />

@@ -1,5 +1,6 @@
 package br.usjt.appanimaldonate.ui;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import java.util.List;
 
 import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
+import br.usjt.appanimaldonate.model.AnimalRepository;
+import br.usjt.appanimaldonate.model.AnimalService;
 import br.usjt.appanimaldonate.model.AnimalViewModel;
 import br.usjt.appanimaldonate.util.ImageUtil;
 
@@ -24,6 +27,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     private static AnunciosAdapter.ItemClickListener itemClickListener;
     private ItemClickListener ClickListener;
     private AnimalViewModel animalViewModel;
+    private AnimalRepository animalRepository;
 
 
     @NonNull
@@ -35,6 +39,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         return new AnunciosAdapter.AnunciosHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AnunciosAdapter.AnunciosHolder holder, int position) {
 
@@ -44,6 +49,12 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         holder.textViewEspecieAnimal.setText(animal.getEspecieAnimal());
         holder.textViewRacaAnimal.setText(animal.getRacaAnimal());
         holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
+        if (animal.getPorteAnimal().equals("Selecione o Porte")){
+            holder.textViewPorteAnimal.setText("Não informado");
+        }
+        else{
+            holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
+        }
         holder.textViewGeneroAnimal.setText(animal.getGeneroAnimal());
         holder.textViewIdadeAnimal.setText(animal.getIdadeAnimal());
         if(animal.isVacina()){
@@ -67,6 +78,12 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         }
 
         holder.textViewInformacaoAnimal.setText(animal.getInformacao());
+        if(animal.getInformacao().equals("")){
+            holder.textViewInformacaoAnimal.setText("Vacinas não informadas");
+        }
+        else{
+            holder.textViewInformacaoAnimal.setText(animal.getInformacao());
+        }
     }
 
     @Override
@@ -112,14 +129,6 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
             deletarAnuncioButton = itemView.findViewById(R.id.deletarAnuncioButton);
             editarAnuncioButton.setOnClickListener(this);
 
-
-            /*deletarAnuncioButton.setOnClickListener(v -> {
-                if (itemClickListener != null) {
-                    itemClickListener.onClick(getAdapterPosition(), results.get(getAdapterPosition()));
-                } DELETAR ANUNCIO
-            });*/
-
-
         }
 
         @Override
@@ -130,6 +139,8 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         }
     }
 
+
+
     public void setOnItemClickListener(AnunciosAdapter.ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
@@ -138,6 +149,8 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     public interface ItemClickListener {
         void onClick(int position, Animal animal);
     }
+
+
 
 
 

@@ -1,5 +1,6 @@
 package br.usjt.appanimaldonate.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -40,6 +41,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         return new AnimalHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AnimalAdapter.AnimalHolder holder, int position) {
 
@@ -49,6 +51,12 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         holder.textViewEspecieAnimal.setText(animal.getEspecieAnimal());
         holder.textViewRacaAnimal.setText(animal.getRacaAnimal());
         holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
+        if (animal.getPorteAnimal().equals("Selecione o Porte")){
+            holder.textViewPorteAnimal.setText("Não informado");
+        }
+        else{
+            holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
+        }
         holder.textViewGeneroAnimal.setText(animal.getGeneroAnimal());
         holder.textViewIdadeAnimal.setText(animal.getIdadeAnimal());
         if(animal.isVacina()){
@@ -72,6 +80,12 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         }
 
         holder.textViewInformacaoAnimal.setText(animal.getInformacao());
+        if(animal.getInformacao().equals("")){
+            holder.textViewInformacaoAnimal.setText("Vacinas não informadas");
+        }
+        else{
+            holder.textViewInformacaoAnimal.setText(animal.getInformacao());
+        }
     }
 
     @Override
