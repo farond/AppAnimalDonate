@@ -1,6 +1,5 @@
 package br.usjt.appanimaldonate.ui;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import java.util.List;
 import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
 import br.usjt.appanimaldonate.model.AnimalRepository;
-import br.usjt.appanimaldonate.model.AnimalService;
 import br.usjt.appanimaldonate.model.AnimalViewModel;
 import br.usjt.appanimaldonate.util.ImageUtil;
 
@@ -26,9 +24,8 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     private List<Animal> results = new ArrayList<>();
     private static AnunciosAdapter.ItemClickListener itemClickListener;
     private ItemClickListener ClickListener;
-    private AnimalViewModel animalViewModel;
     private AnimalRepository animalRepository;
-
+    private Animal animal;
 
     @NonNull
     @Override
@@ -39,7 +36,6 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         return new AnunciosAdapter.AnunciosHolder(itemView);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AnunciosAdapter.AnunciosHolder holder, int position) {
 
@@ -49,12 +45,6 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         holder.textViewEspecieAnimal.setText(animal.getEspecieAnimal());
         holder.textViewRacaAnimal.setText(animal.getRacaAnimal());
         holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
-        if (animal.getPorteAnimal().equals("Selecione o Porte")){
-            holder.textViewPorteAnimal.setText("Não informado");
-        }
-        else{
-            holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
-        }
         holder.textViewGeneroAnimal.setText(animal.getGeneroAnimal());
         holder.textViewIdadeAnimal.setText(animal.getIdadeAnimal());
         if(animal.isVacina()){
@@ -78,12 +68,6 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         }
 
         holder.textViewInformacaoAnimal.setText(animal.getInformacao());
-        if(animal.getInformacao().equals("")){
-            holder.textViewInformacaoAnimal.setText("Vacinas não informadas");
-        }
-        else{
-            holder.textViewInformacaoAnimal.setText(animal.getInformacao());
-        }
     }
 
     @Override
@@ -109,7 +93,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         private TextView textViewCastracaoAnimal;
         private TextView textViewInformacaoAnimal;
         private Button editarAnuncioButton;
-        private Button deletarAnuncioButton;
+        private Button excluirAnuncioButton;
         private ImageView fotoCard;
 
 
@@ -126,8 +110,22 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
             textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
             fotoCard = itemView.findViewById(R.id.fotoCard);
             editarAnuncioButton = itemView.findViewById(R.id.editarAnuncioButton);
-            deletarAnuncioButton = itemView.findViewById(R.id.deletarAnuncioButton);
             editarAnuncioButton.setOnClickListener(this);
+            excluirAnuncioButton = itemView.findViewById(R.id.excluirAnuncioButton);
+            excluirAnuncioButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Animal animal = new Animal();
+
+                    String id = results.get(getAdapterPosition()).getId();
+
+                    animal.setId(id);
+
+                    animalRepository.deletarAnimal(animal);
+                }
+            });
+
+            itemView.setOnClickListener(this);
 
         }
 
@@ -140,19 +138,12 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     }
 
 
-
     public void setOnItemClickListener(AnunciosAdapter.ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
 
-
     public interface ItemClickListener {
         void onClick(int position, Animal animal);
     }
-
-
-
-
-
 
 }
