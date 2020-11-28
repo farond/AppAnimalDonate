@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="PetFriendly"
-        android:fontFamily="@font/montserrat"
+        android:fontFamily="@font/avenir_condensed"
         android:textColor="@color/white"
         android:textSize="18pt"
         app:layout_constraintHorizontal_bias="0.497"

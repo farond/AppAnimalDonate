@@ -5,6 +5,8 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -29,6 +31,8 @@ public class AnimalRepository {
         animaisResponseMutableLiveData = new MutableLiveData<>();
         salvoSucessoMutableLiveData = new MutableLiveData<>();
         alteradoSucessoMutableLiveData = new MutableLiveData<>();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.level(HttpLoggingInterceptor.Level.BODY);

@@ -20,6 +20,7 @@
         <item>3 meses</item>
         <item>4 meses</item>
         <item>5 meses</item>
+        <item>6 à 12 meses</item>
         <item>1 ano</item>
         <item>2 anos</item>
         <item>3 anos</item>
@@ -34,12 +35,7 @@
         <item>12 anos</item>
         <item>13 anos</item>
         <item>14 anos</item>
-        <item>15 anos</item>
-        <item>16 anos</item>
-        <item>17 anos</item>
-        <item>18 anos</item>
-        <item>19 anos</item>
-        <item>20 anos</item>
+        <item>15 anos ou mais</item>
     </string-array>
 
     <string-array name="especie_array">

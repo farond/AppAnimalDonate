@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "956298809142",
+    "firebase_url": "https://petfriendly-ea90b.firebaseio.com",
+    "project_id": "petfriendly-ea90b",
+    "storage_bucket": "petfriendly-ea90b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956298809142:android:351e213fc95618c2b06d97",
+        "android_client_info": {
+          "package_name": "br.usjt.appanimaldonate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956298809142-gd1l13hrpduhl2n1g0kif9i9t6h8rjte.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBse-P3A1oq_P4PhQ9J3FSCUgalmXhIzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956298809142-gd1l13hrpduhl2n1g0kif9i9t6h8rjte.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

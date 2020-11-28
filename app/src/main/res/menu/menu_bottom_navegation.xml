@@ -4,16 +4,19 @@
     <item android:id="@+id/home"
         android:icon="@drawable/ic_home"
         android:title="Home"
+        android:fontFamily="@font/avenir_condensed"
         />
 
     <item android:id="@+id/anuncios"
         android:icon="@drawable/ic_anuncios"
         android:title="Meus Anúncios"
+        android:fontFamily="@font/avenir_condensed"
         />
 
     <item android:id="@+id/novoAnuncio"
         android:icon="@drawable/ic_novo_anuncio"
         android:title="Novo anúncio"
+        android:fontFamily="@font/avenir_condensed"
         />
 
 <!--    <item android:id="@+id/perfil"-->
@@ -23,6 +26,7 @@
     <item android:id="@+id/configuracao"
         android:icon="@drawable/ic_configure"
         android:title="Configuração"
+        android:fontFamily="@font/avenir_condensed"
         />
 
 

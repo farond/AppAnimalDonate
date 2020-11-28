@@ -4,39 +4,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="6dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="6dp"
     app:cardUseCompatPadding="true"
     app:cardBackgroundColor="@color/colorPrimary">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="194dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_photo"
+        android:id="@+id/fotoCard"
+        android:orientation="horizontal"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="350dp"
-            android:layout_height="265dp"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_photo"
-            android:id="@+id/fotoCard"
-            android:layout_marginTop="5dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:gravity="center_horizontal"
             >
 
@@ -44,45 +39,48 @@
                 android:id="@+id/textViewMeChamo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Oiii, eu me chamo "
-                android:textSize="24dp"
-                android:textColor="@color/white"
                 android:layout_marginTop="10dp"
-                />
+                android:text="Oii, eu me chamo "
+                android:fontFamily="@font/avenir_condensed"
+                android:textColor="@color/white"
+                android:textSize="24dp" />
 
             <TextView
                 android:id="@+id/textViewNomeAnimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XXXXXXXXXXX"
+                android:text="XXXXXXXX"
+                android:fontFamily="@font/avenir_condensed"
                 android:textColor="@color/white"
                 android:textSize="23dp"
                 android:layout_marginTop="10dp"
-                 />
+                />
 
             <TextView
                 android:id="@+id/textViewIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" :)"
+                android:fontFamily="@font/avenir_condensed"
                 android:textColor="@color/white"
                 android:textSize="24dp"
                 android:layout_marginTop="10dp"
                 />
-
         </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            ></LinearLayout>
 
                 <TextView
                     android:id="@+id/textViewAnos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Idade: "
+                    android:text="Idade:"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:textColor="@color/white"
@@ -93,25 +91,19 @@
                     android:text="XXXXXXXXXXXX"
                     android:id="@+id/textViewIdadeAnimal"
                     android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"/>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                >
-
                 <TextView
                     android:id="@+id/textViewInfoRaca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Raça: "
+                    android:text="Raça:"
                     android:textStyle="bold"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textSize="18dp"
                     android:textColor="@color/white"
                     android:layout_marginTop="5dp"
@@ -123,6 +115,7 @@
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textSize="18dp"
                     android:layout_marginTop="5dp"/>
 
@@ -130,7 +123,8 @@
                     android:id="@+id/textViewInfoPorte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Porte: "
+                    android:text="Porte:"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:textColor="@color/white"
@@ -138,28 +132,22 @@
                     />
 
                 <TextView
-                    android:text="XXXXXXXXXXXX"
+                    android:text="XXXXXXXXXX"
                     android:id="@+id/textViewPorteAnimal"
                     android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"/>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                >
-
                 <TextView
                     android:id="@+id/textViewInfoEspecie"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Espécie: "
+                    android:text="Espécie:"
                     android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_marginTop="5dp"
@@ -170,6 +158,7 @@
                     android:id="@+id/textViewEspecieAnimal"
                     android:textColor="@color/white"
                     android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"/>
@@ -178,8 +167,9 @@
                     android:id="@+id/textViewInfoGenero"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Gênero: "
+                    android:text="Gênero:"
                     android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
@@ -190,23 +180,17 @@
                     android:id="@+id/textViewGeneroAnimal"
                     android:textColor="@color/white"
                     android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                >
 
                 <TextView
                     android:id="@+id/textViewInfoVacina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vacinação: "
+                    android:text="Vacinação:"
+                    android:fontFamily="@font/avenir_condensed"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:textColor="@color/white"
@@ -218,71 +202,70 @@
                     android:id="@+id/textViewVacinaAnimal"
                     android:textColor="@color/white"
                     android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"/>
 
-            </LinearLayout>
 
-            <TextView
-                android:id="@+id/textViewInfoVacinass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vacinas Tomadas:"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:layout_margin="4dp"
-                android:textColor="@color/white"
-                android:layout_marginTop="5dp"
-                />
-
-        <LinearLayout
-            android:id="@+id/layoutDadosAnuncio"
+        <TextView
+            android:id="@+id/textViewInfoVacinass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="5dp"
+            android:text="Vacinas Tomadas:"
+            android:fontFamily="@font/avenir_condensed"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                android:id="@+id/textViewInformacaoVacAnimal"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <TextView
+                    android:text="XXXXXXXXXXXXXXXXX"
+                    android:id="@+id/textViewInformacaoVacAnimal"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:text="XXXXXXXXXXXXXXX"
-                android:id="@+id/textViewCastracaoAnimal"
-                android:textColor="@color/white"
-                android:layout_width="match_parent"
-                android:textSize="18dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"/>
+                <TextView
+                    android:text="XXXXXXXXXXXXXXX"
+                    android:id="@+id/textViewCastracaoAnimal"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/avenir_condensed"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"/>
 
-        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/avenir_condensed"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
             <Button
                 android:id="@+id/adocaoAnuncioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_gravity="center_horizontal"
                 android:text="Adotar"
-                android:background="@drawable/round"
-                android:textColor="@color/white"
+                android:fontFamily="@font/avenir_condensed"
+                android:background="@drawable/adocaoroundbutton"
+                android:textColor="@color/colorPrimary"
                 >
 
             </Button>
 
-        </LinearLayout>
+    </LinearLayout>
 
+    </LinearLayout>
 
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
