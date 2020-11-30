@@ -18,6 +18,7 @@ import static androidx.room.ForeignKey.CASCADE;
         onDelete = CASCADE))
 public class Animal implements Serializable {
 
+
     @PrimaryKey
     @SerializedName("_id")
     @Expose
@@ -164,6 +165,13 @@ public class Animal implements Serializable {
 
     public void setUsuarioTelefone(String usuarioTelefone) {
         this.usuarioTelefone = usuarioTelefone;
+    }
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     @Override

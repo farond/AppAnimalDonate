@@ -25,7 +25,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
 
     private List<Animal> results = new ArrayList<>();
     private static AnunciosAdapter.ItemClickListener itemClickListener;
-    private AnunciosAdapter.ItemClickListener deleteClickListener;
+    private ItemClickListener ClickListener;
     private AnimalViewModel animalViewModel;
     private AnimalRepository animalRepository;
 
@@ -84,7 +84,6 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         else{
             holder.textViewInformacaoAnimal.setText(animal.getInformacao());
         }
-
     }
 
     @Override
@@ -129,7 +128,6 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
             editarAnuncioButton = itemView.findViewById(R.id.editarAnuncioButton);
             deletarAnuncioButton = itemView.findViewById(R.id.deletarAnuncioButton);
             editarAnuncioButton.setOnClickListener(this);
-            deletarAnuncioButton.setOnClickListener(this);
 
         }
 
@@ -150,7 +148,6 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
 
     public interface ItemClickListener {
         void onClick(int position, Animal animal);
-
     }
 
 

@@ -75,7 +75,6 @@
                 android:gravity="center_horizontal"
                 ></LinearLayout>
 
-
             <TextView
                 android:id="@+id/textViewAnos"
                 android:layout_width="wrap_content"
