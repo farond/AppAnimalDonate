@@ -25,11 +25,13 @@ public class AnimalRepository {
     private MutableLiveData<List<Animal>> animaisResponseMutableLiveData;
     private MutableLiveData<Boolean> salvoSucessoMutableLiveData;
     private MutableLiveData<Boolean> alteradoSucessoMutableLiveData;
+    private MutableLiveData<Boolean> deletadoSucessoMutableLiveData;
 
     public AnimalRepository() {
         animaisResponseMutableLiveData = new MutableLiveData<>();
         salvoSucessoMutableLiveData = new MutableLiveData<>();
         alteradoSucessoMutableLiveData = new MutableLiveData<>();
+        deletadoSucessoMutableLiveData = new MutableLiveData<>();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -74,6 +76,9 @@ public class AnimalRepository {
 
     public LiveData<Boolean> getAlteradoSucesso() {
         return alteradoSucessoMutableLiveData;
+    }
+    public LiveData<Boolean> getDeletadoSucesso(){
+        return deletadoSucessoMutableLiveData;
     }
 
 
@@ -136,6 +141,22 @@ public class AnimalRepository {
     }
 
     public Call<ResponseBody> deletarAnimal(Animal animal) {
+        animalService.deletarAnimal(animal.getId())
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.body() != null) {
+                            Log.d("RESPOSTA", "Deletado Com Sucesso"+response.body());
+                            deletadoSucessoMutableLiveData.postValue(new Boolean(true));
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e("RESPOSTA", "FALHOU->"+t.getMessage());
+                        deletadoSucessoMutableLiveData.postValue(new Boolean(false));
+                    }
+                });
         return animalService.deletarAnimal(animal.getId());
 
     }

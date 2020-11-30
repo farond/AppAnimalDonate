@@ -15,6 +15,7 @@ public class AnimalViewModel extends AndroidViewModel {
     private LiveData<List<Animal>> animaisResponseLiveData;
     private LiveData<Boolean> salvoComSucessoLiveData;
     private LiveData<Boolean> alteradoSucessoLiveData;
+    private LiveData<Boolean> deletadoSucessoLiveData;
 
 
     public AnimalViewModel(@NonNull Application application) {
@@ -24,6 +25,7 @@ public class AnimalViewModel extends AndroidViewModel {
         animaisResponseLiveData = animalRepository.getAllAnimais();
         salvoComSucessoLiveData = animalRepository.getSalvoSucesso();
         alteradoSucessoLiveData = animalRepository.getAlteradoSucesso();
+        deletadoSucessoLiveData = animalRepository.getDeletadoSucesso();
     }
 
     public void getAnimais() {
@@ -40,6 +42,10 @@ public class AnimalViewModel extends AndroidViewModel {
 
     public LiveData<Boolean> getAlteradoSucesso() {
         return alteradoSucessoLiveData;
+    }
+
+    public LiveData<Boolean> getDeletadoSucesso() {
+        return deletadoSucessoLiveData;
     }
 
     public void salvarAnimal(Animal animal){

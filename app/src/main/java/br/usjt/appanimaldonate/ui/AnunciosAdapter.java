@@ -26,9 +26,8 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     private List<Animal> results = new ArrayList<>();
     private static AnunciosAdapter.ItemClickListener itemClickListener;
     private ItemClickListener ClickListener;
-    private AnimalViewModel animalViewModel;
     private AnimalRepository animalRepository;
-
+    private Animal animal;
 
     @NonNull
     @Override
@@ -109,7 +108,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         private TextView textViewCastracaoAnimal;
         private TextView textViewInformacaoAnimal;
         private Button editarAnuncioButton;
-        private Button deletarAnuncioButton;
+        private Button excluirAnuncioButton;
         private ImageView fotoCard;
 
 
@@ -126,8 +125,18 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
             textViewInformacaoAnimal = itemView.findViewById(R.id.textViewInformacaoVacAnimal);
             fotoCard = itemView.findViewById(R.id.fotoCard);
             editarAnuncioButton = itemView.findViewById(R.id.editarAnuncioButton);
-            deletarAnuncioButton = itemView.findViewById(R.id.deletarAnuncioButton);
             editarAnuncioButton.setOnClickListener(this);
+            excluirAnuncioButton = itemView.findViewById(R.id.excluirAnuncioButton);
+            excluirAnuncioButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(itemClickListener != null) {
+                        itemClickListener.onDeleteClick(getAdapterPosition(), results.get(getAdapterPosition()));
+                    }
+                }
+            });
+
+            itemView.setOnClickListener(this);
 
         }
 
@@ -140,19 +149,13 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
     }
 
 
-
     public void setOnItemClickListener(AnunciosAdapter.ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
 
-
     public interface ItemClickListener {
         void onClick(int position, Animal animal);
+        void onDeleteClick(int position, Animal animal);
     }
-
-
-
-
-
 
 }

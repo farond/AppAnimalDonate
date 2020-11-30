@@ -166,11 +166,11 @@ public class Animal implements Serializable {
     public void setUsuarioTelefone(String usuarioTelefone) {
         this.usuarioTelefone = usuarioTelefone;
     }
-    public int getUsuarioId() {
+    public String getUsuarioId() {
         return usuarioId;
     }
 
-    public void setUsuarioId(int usuarioId) {
+    public void setUsuarioId(String usuarioId) {
         this.usuarioId = usuarioId;
     }
 

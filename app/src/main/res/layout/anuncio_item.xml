@@ -263,7 +263,7 @@
             </Button>
 
             <Button
-                android:id="@+id/deletarAnuncioButton"
+                android:id="@+id/excluirAnuncioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/deletarroundbutton"

@@ -23,6 +23,7 @@ import java.util.List;
 
 import br.usjt.appanimaldonate.R;
 import br.usjt.appanimaldonate.model.Animal;
+import br.usjt.appanimaldonate.model.AnimalService;
 import br.usjt.appanimaldonate.model.AnimalViewModel;
 
 public class MeusAnunciosFragment extends Fragment {
@@ -70,20 +71,20 @@ public class MeusAnunciosFragment extends Fragment {
             }
         });
 
-        adapter.setOnItemClickListener((position, animal) -> replaceFragment(R.id.frameLayout,
-                NovoAnuncioFragment.newInstance("", animal),
-                NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
-                "animal_click"));
-        
         adapter.setOnItemClickListener(new AnunciosAdapter.ItemClickListener() {
             @Override
             public void onClick(int position, Animal animal) {
+                replaceFragment(R.id.frameLayout, NovoAnuncioFragment.newInstance("", animal),
+                        NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
+                        "animal_click");
+            }
+
+            @Override
+            public void onDeleteClick(int position, Animal animal) {
+                animalViewModel.deletarAnimal(position, animal);
 
             }
         });
-        {
-
-        }
 
     }
 
