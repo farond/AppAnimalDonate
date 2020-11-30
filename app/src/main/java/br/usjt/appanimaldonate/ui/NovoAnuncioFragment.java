@@ -197,6 +197,10 @@ public class NovoAnuncioFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("ITEMGENEROSELECIONADO", "POSIÇÃO-->"+position);
+                if(equals("Selecione Genero")){
+                    
+
+                }
             }
 
             @Override

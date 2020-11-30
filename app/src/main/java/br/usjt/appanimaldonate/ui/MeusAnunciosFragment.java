@@ -74,6 +74,16 @@ public class MeusAnunciosFragment extends Fragment {
                 NovoAnuncioFragment.newInstance("", animal),
                 NovoAnuncioFragment.NOVOANUNCIO_FRAGMENT_TAG,
                 "animal_click"));
+        
+        adapter.setOnItemClickListener(new AnunciosAdapter.ItemClickListener() {
+            @Override
+            public void onClick(int position, Animal animal) {
+
+            }
+        });
+        {
+
+        }
 
     }
 

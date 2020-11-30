@@ -21,7 +21,6 @@ public class AnimalRepository {
 
     private static final String ANIMAIS_SERVICE_BASE_URL = "https://crudcrud.com";
 
-
     private AnimalService animalService;
     private MutableLiveData<List<Animal>> animaisResponseMutableLiveData;
     private MutableLiveData<Boolean> salvoSucessoMutableLiveData;
