@@ -7,6 +7,7 @@ O objetivo do Projeto é criar um aplicativo para doação de animais. Efetuando
 - Material Design
 - Retrofit2
 - Saripaar2
+- CRUDCRUD
 
 #### ##### Integrantes do Grupo
 - Fabio Lino - Programação
