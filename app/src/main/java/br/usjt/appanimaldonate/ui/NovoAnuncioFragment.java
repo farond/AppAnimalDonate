@@ -1,5 +1,6 @@
 package br.usjt.appanimaldonate.ui;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -46,6 +47,7 @@ import br.usjt.appanimaldonate.model.AnimalViewModel;
 import br.usjt.appanimaldonate.util.ImageUtil;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.ContentValues.TAG;
 
 
 public class NovoAnuncioFragment extends Fragment {

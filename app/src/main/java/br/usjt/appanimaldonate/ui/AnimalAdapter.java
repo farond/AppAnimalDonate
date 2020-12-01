@@ -100,7 +100,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
 
     class AnimalHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-
         private TextView textViewNomeAnimal;
         private TextView textViewEspecieAnimal;
         private TextView textViewRacaAnimal;
@@ -112,7 +111,6 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         private TextView textViewInformacaoAnimal;
         private Button  adocaoAnuncioButton;
         private ImageView fotoCard;
-
 
         public AnimalHolder(@NonNull View itemView) {
             super(itemView);
@@ -128,6 +126,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
             fotoCard = itemView.findViewById(R.id.fotoCard);
             adocaoAnuncioButton = itemView.findViewById(R.id.adocaoAnuncioButton);
             adocaoAnuncioButton.setOnClickListener(this);
+
         }
 
         @Override

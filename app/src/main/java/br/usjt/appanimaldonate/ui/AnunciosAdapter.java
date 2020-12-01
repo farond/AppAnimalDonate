@@ -139,7 +139,8 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
                 }
             });
 
-            itemView.setOnClickListener(this);
+
+//            itemView.setOnClickListener(this);
 
         }
 

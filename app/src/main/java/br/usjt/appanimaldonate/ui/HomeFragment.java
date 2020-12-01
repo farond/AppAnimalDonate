@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +44,7 @@ public class HomeFragment extends Fragment {
     private Button buttonAtualizar;
     private AnimalAdapter adapter;
     private ProgressBar progressBar;
+    LinearLayout expandableView;
 
     private String mParam1;
     private String mParam2;
@@ -94,6 +98,7 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getActivity(), "Whatsapp não está intalado neste aparelho", Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
 
 
