@@ -47,6 +47,9 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         holder.textViewNomeAnimal.setText(animal.getNomeAnimal());
         holder.textViewEspecieAnimal.setText(animal.getEspecieAnimal());
         holder.textViewRacaAnimal.setText(animal.getRacaAnimal());
+        if (animal.getPorteAnimal().equals("Selecione a Raça")){
+            holder.textViewPorteAnimal.setText("Não informado");
+        }
         holder.textViewPorteAnimal.setText(animal.getPorteAnimal());
         if (animal.getPorteAnimal().equals("Selecione o Porte")){
             holder.textViewPorteAnimal.setText("Não informado");

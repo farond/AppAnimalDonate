@@ -5,13 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.core.content.FileProvider;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -29,13 +22,21 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
 import com.orhanobut.hawk.Hawk;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import br.usjt.appanimaldonate.BuildConfig;
@@ -54,7 +55,6 @@ public class NovoAnuncioFragment extends Fragment {
     public static final String NOVOANUNCIO_FRAGMENT_TAG = "novo anuncio_fragment";
 
     private EditText editTextNomeAnimal;
-    private EditText editTextIdadeAnimal;
     private EditText editTextTelefoneUser;
     private Spinner spinnerEspecieAnimal;
     private Spinner spinnerPorteAnimal;
@@ -69,7 +69,6 @@ public class NovoAnuncioFragment extends Fragment {
     private TextView textViewLinkFoto;
     private Button buttonSalvarAnuncio;
     private AnimalViewModel animalViewModel;
-//    private Animal animalCorrente;
 
     private String mParam1;
     private Animal animal;
@@ -428,4 +427,6 @@ public class NovoAnuncioFragment extends Fragment {
         Log.d("IMAGEMBITMAPENCODED-->",novoAnuncioCorrente.getImagem());
 
     }
+
+
 }

@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -82,9 +83,18 @@ public class MeusAnunciosFragment extends Fragment {
             @Override
             public void onDeleteClick(int position, Animal animal) {
                 animalViewModel.deletarAnimal(position, animal);
-
+                Reload();
             }
         });
+
+    }
+
+    public void Reload(){
+
+        getActivity().getSupportFragmentManager().beginTransaction().replace(MeusAnunciosFragment.this.getId(), new MeusAnunciosFragment()).commit();
+
+        String mensagem = "Anuncio Excluido com Sucesso!";
+        Toast.makeText(getActivity(),mensagem,Toast.LENGTH_SHORT).show();
 
     }
 
