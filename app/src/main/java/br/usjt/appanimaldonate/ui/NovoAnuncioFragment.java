@@ -267,25 +267,51 @@ public class NovoAnuncioFragment extends Fragment {
 
     }
 
-    public void salvar(){
-        novoAnuncioCorrente.setNomeAnimal(editTextNomeAnimal.getText().toString());
-//        novoAnuncioCorrente.setIdadeAnimal(editTextIdadeAnimal.getText().toString());
-        novoAnuncioCorrente.setIdadeAnimal(spinnerIdadeAnimal.getSelectedItem().toString());
-        novoAnuncioCorrente.setInformacao(editTextInformacaoVacAnimal.getText().toString());
-        novoAnuncioCorrente.setRacaAnimal(spinnerRacaAnimal.getSelectedItem().toString());
-        novoAnuncioCorrente.setPorteAnimal(spinnerPorteAnimal.getSelectedItem().toString());
-        novoAnuncioCorrente.setEspecieAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
-        novoAnuncioCorrente.setGeneroAnimal(spinnerGeneroAnimal.getSelectedItem().toString());
-        novoAnuncioCorrente.setVacina(switchVacinacaoAnimal.isChecked());
-        novoAnuncioCorrente.setCastrado(switchCastracaoAnimal.isChecked());
-        novoAnuncioCorrente.setUsuarioTelefone(editTextTelefoneUser.getText().toString());
-        if(animal == null){
-            animalViewModel.salvarAnimal(novoAnuncioCorrente);
-        }else{
-            Log.d("ANIMALKP","alterar");
-            animalViewModel.alterarAnimal(novoAnuncioCorrente);
+    public String validar(){
+        String texto_erros="";
+        editTextNomeAnimal = getView().findViewById(R.id.nomeAnimalEditText);
+        editTextTelefoneUser = getView().findViewById(R.id.telefoneUserEditText);
+
+        if (editTextNomeAnimal.getText().toString().equals("")){
+            texto_erros = "Nome animal é obrigatório\n";
+            editTextNomeAnimal.setError("Este campo é obrigatório");
         }
-        limparCampos();
+        if (editTextTelefoneUser.getText().toString().equals("")){
+            texto_erros = texto_erros+"Telefone é obrigatório\n";
+            editTextTelefoneUser.setError("Este campo é obrigatório");
+        }
+
+
+        return texto_erros;
+    }
+
+    public void salvar(){
+
+        String erros= validar();
+        if(erros.equals("")){
+            novoAnuncioCorrente.setNomeAnimal(editTextNomeAnimal.getText().toString());
+//        novoAnuncioCorrente.setIdadeAnimal(editTextIdadeAnimal.getText().toString());
+            novoAnuncioCorrente.setIdadeAnimal(spinnerIdadeAnimal.getSelectedItem().toString());
+            novoAnuncioCorrente.setInformacao(editTextInformacaoVacAnimal.getText().toString());
+            novoAnuncioCorrente.setRacaAnimal(spinnerRacaAnimal.getSelectedItem().toString());
+            novoAnuncioCorrente.setPorteAnimal(spinnerPorteAnimal.getSelectedItem().toString());
+            novoAnuncioCorrente.setEspecieAnimal(spinnerEspecieAnimal.getSelectedItem().toString());
+            novoAnuncioCorrente.setGeneroAnimal(spinnerGeneroAnimal.getSelectedItem().toString());
+            novoAnuncioCorrente.setVacina(switchVacinacaoAnimal.isChecked());
+            novoAnuncioCorrente.setCastrado(switchCastracaoAnimal.isChecked());
+            novoAnuncioCorrente.setUsuarioTelefone(editTextTelefoneUser.getText().toString());
+            if(animal == null){
+                animalViewModel.salvarAnimal(novoAnuncioCorrente);
+            }else{
+                Log.d("ANIMALKP","alterar");
+                animalViewModel.alterarAnimal(novoAnuncioCorrente);
+            }
+            limparCampos();
+        }else{
+            Toast.makeText(getActivity(),"Varifique os campos",Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     private void updateView(Animal animal) {
@@ -312,7 +338,7 @@ public class NovoAnuncioFragment extends Fragment {
         spinnerGeneroAnimal.setSelection(0);
         switchVacinacaoAnimal.setChecked(false);
         switchCastracaoAnimal.setChecked(false);
-        imageViewFoto.setImageResource(R.drawable.ic_photo);
+        imageViewFoto.setImageResource(R.drawable.ic_photo_dog);
         editTextTelefoneUser.setText("");
     }
 
