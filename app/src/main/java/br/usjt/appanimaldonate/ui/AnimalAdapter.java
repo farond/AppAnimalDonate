@@ -74,7 +74,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalHold
         }
 
         if(animal.getImagem()==null || animal.getImagem().isEmpty()){
-            holder.fotoCard.setImageResource(R.drawable.ic_photo);
+            holder.fotoCard.setImageResource(R.drawable.ic_photo_dog);
         }else{
             holder.fotoCard.setImageBitmap(ImageUtil.decode(animal.getImagem()));
         }

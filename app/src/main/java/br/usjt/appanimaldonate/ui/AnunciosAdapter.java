@@ -74,7 +74,7 @@ public class AnunciosAdapter extends RecyclerView.Adapter<AnunciosAdapter.Anunci
         }
 
         if(animal.getImagem()==null || animal.getImagem().isEmpty()){
-            holder.fotoCard.setImageResource(R.drawable.ic_photo);
+            holder.fotoCard.setImageResource(R.drawable.ic_photo_dog);
         }else{
             holder.fotoCard.setImageBitmap(ImageUtil.decode(animal.getImagem()));
         }
